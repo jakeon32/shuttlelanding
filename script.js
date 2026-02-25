@@ -103,11 +103,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Set initial max date for booking to end of season
-    const dateInput = document.querySelector('input[type="date"]');
-    if (dateInput) {
-        // Just ensuring the values are respected by JS if needed
+    // Hero Flatpickr Date Picker
+    const heroDatePicker = document.getElementById('heroDatePicker');
+    if (heroDatePicker) {
+        flatpickr(heroDatePicker, {
+            locale: "ko",
+            minDate: "2026-07-11",
+            maxDate: "2026-08-17",
+            dateFormat: "m/d (D)",
+            disableMobile: true
+        });
     }
+
+    // Hero Passenger Dropdown
+    const passengerTrigger = document.getElementById('passengerTrigger');
+    const passengerDropdown = document.getElementById('passengerDropdown');
+    const passengerSummary = document.getElementById('passengerSummary');
+
+    function updatePassengerSummary() {
+        const adults = parseInt(document.getElementById('heroAdultCount').value);
+        const children = parseInt(document.getElementById('heroChildCount').value);
+        let text = `대인 ${adults}명`;
+        if (children > 0) text += `, 소인 ${children}명`;
+        passengerSummary.textContent = text;
+    }
+
+    if (passengerTrigger) {
+        passengerTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = passengerDropdown.classList.contains('open');
+            passengerDropdown.classList.toggle('open');
+            passengerTrigger.classList.toggle('active');
+        });
+
+        // Close dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (!passengerDropdown.contains(e.target) && e.target !== passengerTrigger) {
+                passengerDropdown.classList.remove('open');
+                passengerTrigger.classList.remove('active');
+            }
+        });
+    }
+
+    // Unified counter logic for both hero and modal
+    document.querySelectorAll('.count-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target') + 'Count';
+            const input = document.getElementById(targetId);
+            if (!input) return;
+
+            let val = parseInt(input.value);
+            const min = parseInt(input.getAttribute('min'));
+            const max = parseInt(input.getAttribute('max'));
+
+            if (btn.classList.contains('minus') && val > min) input.value = val - 1;
+            if (btn.classList.contains('plus') && val < max) input.value = val + 1;
+
+            // Update hero summary if it's a hero counter
+            if (targetId.startsWith('hero')) updatePassengerSummary();
+        });
+    });
 
     // Booking Modal Logic
     const bookingModal = document.getElementById('bookingModal');
@@ -163,26 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Passenger Counters
-    const countBtns = document.querySelectorAll('.count-btn');
-    countBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target') + 'Count';
-            const input = document.getElementById(targetId);
-            if (!input) return;
-
-            let val = parseInt(input.value);
-            const min = parseInt(input.getAttribute('min'));
-            const max = parseInt(input.getAttribute('max'));
-
-            if (btn.classList.contains('minus')) {
-                if (val > min) input.value = val - 1;
-            } else if (btn.classList.contains('plus')) {
-                if (val < max) input.value = val + 1;
-            }
-        });
-    });
 
     // Search Tickets Action
     if (searchTicketsBtn) {

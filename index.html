@@ -31,8 +31,6 @@
                 <a href="#booking" class="btn btn-outline">오션월드 바로가기</a>
             </nav>
             <div class="header-actions">
-                <a href="#">로그인</a>
-                <a href="#">회원가입</a>
                 <a href="#" class="btn btn-primary">예약 확인</a>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu">
@@ -56,13 +54,14 @@
 
             <div class="booking-widget animate-up delay-1">
                 <div class="widget-tabs">
-                    <button class="tab-btn active">One Way</button>
-                    <button class="tab-btn">Round Trip</button>
+                    <button class="tab-btn active">편도</button>
+                    <button class="tab-btn">왕복</button>
                 </div>
                 <form class="booking-form">
                     <div class="form-group">
-                        <label>From</label>
+                        <label>출발지</label>
                         <select required id="from-select">
+                            <option value="" disabled selected>출발지 선택</option>
                             <optgroup label="서울 동부/북부">
                                 <option value="hongdae">홍대입구</option>
                                 <option value="dongdaemun">동대문역사문화공원</option>
@@ -90,29 +89,49 @@
                             </optgroup>
                         </select>
                     </div>
-                    <div class="form-group icon-swap">
-                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                    </div>
-                    <div class="form-group">
-                        <label>To</label>
+                    <div class="form-group form-group-to">
+                        <label>도착지</label>
                         <select required disabled>
-                            <option selected>오션월드 (Vivaldi Park)</option>
+                            <option selected>오션월드</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Departure</label>
-                        <input type="date" required min="2025-07-11" max="2025-08-17">
+                        <label>출발일</label>
+                        <input type="text" id="heroDatePicker" placeholder="날짜 선택" readonly>
                     </div>
-                    <div class="form-group">
-                        <label>Passengers</label>
-                        <select required>
-                            <option>성인 1명</option>
-                            <option>성인 2명</option>
-                            <option>성인 2명, 아동 1명</option>
-                        </select>
+                    <div class="form-group form-group-passenger">
+                        <label>인원</label>
+                        <button type="button" class="passenger-trigger" id="passengerTrigger">
+                            <span id="passengerSummary">대인 1명</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="passenger-dropdown" id="passengerDropdown">
+                            <div class="passenger-row">
+                                <div class="passenger-type">
+                                    <strong>대인</strong>
+                                    <span>만 13세 이상</span>
+                                </div>
+                                <div class="passenger-counter">
+                                    <button type="button" class="count-btn minus" data-target="heroAdult">-</button>
+                                    <input type="number" id="heroAdultCount" value="1" min="1" max="10" readonly>
+                                    <button type="button" class="count-btn plus" data-target="heroAdult">+</button>
+                                </div>
+                            </div>
+                            <div class="passenger-row">
+                                <div class="passenger-type">
+                                    <strong>소인</strong>
+                                    <span>만 13세 미만</span>
+                                </div>
+                                <div class="passenger-counter">
+                                    <button type="button" class="count-btn minus" data-target="heroChild">-</button>
+                                    <input type="number" id="heroChildCount" value="0" min="0" max="10" readonly>
+                                    <button type="button" class="count-btn plus" data-target="heroChild">+</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i>
-                        Search</button>
+                        검색</button>
                 </form>
             </div>
         </div>
@@ -149,7 +168,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-blue">06:30</div>
-                                    <div class="row-path">홍대 &rarr; 동대문역사 &rarr; 건대입구 &rarr; 강변 &rarr; 오션월드</div>
+                                    <div class="row-path">홍대 <i class="fa-solid fa-arrow-right"></i> 동대문역사 <i class="fa-solid fa-arrow-right"></i> 건대입구 <i class="fa-solid fa-arrow-right"></i> 강변 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -190,7 +209,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-blue">06:35</div>
-                                    <div class="row-path">의정부 &rarr; 노원 &rarr; 태릉 &rarr; 오션월드</div>
+                                    <div class="row-path">의정부 <i class="fa-solid fa-arrow-right"></i> 노원 <i class="fa-solid fa-arrow-right"></i> 태릉 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -226,7 +245,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-blue">06:50</div>
-                                    <div class="row-path">성신여대 &rarr; 회기 &rarr; 구리 &rarr; 오션월드</div>
+                                    <div class="row-path">성신여대 <i class="fa-solid fa-arrow-right"></i> 회기 <i class="fa-solid fa-arrow-right"></i> 구리 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -273,7 +292,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">06:50</div>
-                                    <div class="row-path">사당 &rarr; 종합운동장 &rarr; 천호 &rarr; 하남 &rarr; 오션월드</div>
+                                    <div class="row-path">사당 <i class="fa-solid fa-arrow-right"></i> 종합운동장 <i class="fa-solid fa-arrow-right"></i> 천호 <i class="fa-solid fa-arrow-right"></i> 하남 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -314,7 +333,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">06:30</div>
-                                    <div class="row-path">발산 &rarr; 목동 &rarr; 영등포신세계 &rarr; 여의도 &rarr; 오션월드</div>
+                                    <div class="row-path">발산 <i class="fa-solid fa-arrow-right"></i> 목동 <i class="fa-solid fa-arrow-right"></i> 영등포신세계 <i class="fa-solid fa-arrow-right"></i> 여의도 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -355,7 +374,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">06:50</div>
-                                    <div class="row-path">불광 &rarr; 구파발 &rarr; 삼송 &rarr; 오션월드</div>
+                                    <div class="row-path">불광 <i class="fa-solid fa-arrow-right"></i> 구파발 <i class="fa-solid fa-arrow-right"></i> 삼송 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -391,7 +410,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">09:00</div>
-                                    <div class="row-path">사당 &rarr; 종합운동장 &rarr; 오션월드</div>
+                                    <div class="row-path">사당 <i class="fa-solid fa-arrow-right"></i> 종합운동장 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <span class="badge-late">늦은 출발</span>
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
@@ -423,7 +442,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">15:00</div>
-                                    <div class="row-path">종합운동장 &rarr; 오션월드</div>
+                                    <div class="row-path">종합운동장 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <span class="badge-late">오후 출발</span>
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
@@ -461,7 +480,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-green">06:30</div>
-                                    <div class="row-path">상록수 &rarr; 산본 &rarr; 범계 &rarr; 오션월드</div>
+                                    <div class="row-path">상록수 <i class="fa-solid fa-arrow-right"></i> 산본 <i class="fa-solid fa-arrow-right"></i> 범계 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -497,7 +516,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-green">06:30</div>
-                                    <div class="row-path">영통 &rarr; 죽전 &rarr; 서현 &rarr; 야탑 &rarr; 오션월드</div>
+                                    <div class="row-path">영통 <i class="fa-solid fa-arrow-right"></i> 죽전 <i class="fa-solid fa-arrow-right"></i> 서현 <i class="fa-solid fa-arrow-right"></i> 야탑 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -538,7 +557,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-green">06:30</div>
-                                    <div class="row-path">운정 &rarr; 대화 &rarr; 마두 &rarr; 화정 &rarr; 오션월드</div>
+                                    <div class="row-path">운정 <i class="fa-solid fa-arrow-right"></i> 대화 <i class="fa-solid fa-arrow-right"></i> 마두 <i class="fa-solid fa-arrow-right"></i> 화정 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -590,7 +609,7 @@
                             <div class="route-row">
                                 <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-purple">06:20</div>
-                                    <div class="row-path">인천시청 &rarr; 부평 &rarr; 송내 &rarr; 부천시청 &rarr; 오션월드</div>
+                                    <div class="row-path">인천시청 <i class="fa-solid fa-arrow-right"></i> 부평 <i class="fa-solid fa-arrow-right"></i> 송내 <i class="fa-solid fa-arrow-right"></i> 부천시청 <i class="fa-solid fa-arrow-right"></i> 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -630,49 +649,53 @@
                             </div>
                         </div>
                     </div>
+                <div class="section-header mt-space">
+                    <h2>리조트에서 출발</h2>
+                    <p>오션월드에서 돌아가는 셔틀버스 시간을 확인하세요.</p>
+                </div>
+
+                <div class="route-group" data-region="resort">
+                    <div class="group-header">
+                        <div class="group-title">
+                            <span class="color-dot bg-orange"></span>
+                            오션월드
+                        </div>
+                        <div class="group-badge">3개 시간대</div>
+                    </div>
+                    <div class="return-schedule">
+                        <div class="return-row">
+                            <div class="return-time">13:00</div>
+                            <div class="return-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div class="return-destinations">
+                                <span class="dest-tag">종합운동장역</span>
+                                <span class="dest-tag">홍대입구역</span>
+                            </div>
+                            <div class="return-period">07.11 ~ 08.17</div>
+                        </div>
+                        <div class="return-row">
+                            <div class="return-time">18:00</div>
+                            <div class="return-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div class="return-destinations">
+                                <span class="dest-tag">종합운동장역</span>
+                                <span class="dest-tag">홍대입구역</span>
+                                <span class="dest-tag">전 지역</span>
+                            </div>
+                            <div class="return-period">07.11 ~ 08.17</div>
+                        </div>
+                        <div class="return-row">
+                            <div class="return-time">21:00</div>
+                            <div class="return-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div class="return-destinations">
+                                <span class="dest-tag">종합운동장역</span>
+                                <span class="dest-tag peak">성수기 한정</span>
+                            </div>
+                            <div class="return-period">07.25 ~ 08.16</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="text-center mt-4 mb-4">
-                    <a href="#booking" class="btn btn-primary">전체 노선 및 요금 상세 보기 &rarr;</a>
-                </div>
-
-                <div class="direction-divider mt-space">
-                    <h3><i class="fa-solid fa-bus-simple"></i> From Resort <span class="badge-sub">오션월드 발</span></h3>
-                </div>
-
-                <h4 class="time-header mt-4">13:00 출발</h4>
-                <div class="route-cards">
-                    <div class="route-card">
-                        <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
-                        <div class="route-period">운행 기간: 2026.07.11 ~ 08.17</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-stops return-stops">오션월드 &rarr; 홍대입구역</div>
-                        <div class="route-period">운행 기간: 2026.07.11 ~ 08.17</div>
-                    </div>
-                </div>
-
-                <h4 class="time-header mt-4">18:00 출발</h4>
-                <div class="route-cards">
-                    <div class="route-card">
-                        <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
-                        <div class="route-period">운행 기간: 2026.07.11 ~ 08.17</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-stops return-stops">오션월드 &rarr; 홍대입구역</div>
-                        <div class="route-period">운행 기간: 2026.07.11 ~ 08.17</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-stops return-stops">오션월드 &rarr; 전 지역</div>
-                        <div class="route-period">운행 기간: 2026.07.11 ~ 08.17</div>
-                    </div>
-                </div>
-
-                <h4 class="time-header mt-4">21:00 출발</h4>
-                <div class="route-cards">
-                    <div class="route-card highlight-card">
-                        <div class="route-header"><span class="badge-peak">7/25~8/16 Only 성수기 한정</span></div>
-                        <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
-                        <div class="route-period">운행 기간: 07.25 ~ 08.16</div>
-                    </div>
+                    <a href="#booking" class="btn btn-primary">요금 상세보기 &rarr;</a>
                 </div>
 
             </div> <!-- .route-content -->
