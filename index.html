@@ -118,33 +118,13 @@
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="features">
-        <div class="container features-grid section-animate">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fa-solid fa-bus"></i></div>
-                <h3>Door-to-Door</h3>
-                <p>수도권에서 오션월드까지, 환승 없이 한 번에.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fa-regular fa-clock"></i></div>
-                <h3>이른 아침 출발</h3>
-                <p>워터파크 오픈 시간 전 도착, 하루를 길게 즐기세요.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <h3>다양한 탑승지</h3>
-                <p>서울, 경기, 인천 주요 거점에서 편리하게 탑승.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Route Overview -->
+    <!-- Route Overview (Integrated Find My Stop) -->
     <section class="routes-section" id="routes">
         <div class="container section-animate">
             <div class="section-header">
                 <h2>내 출발지 찾기</h2>
-                <p>가장 가까운 탑승장을 확인하세요.</p>
+                <p>가장 가까운 탑승장과 버스 시간을 확인하세요.</p>
             </div>
 
             <div class="route-tabs">
@@ -155,116 +135,303 @@
                 <button class="route-tab" data-target="incheon">인천</button>
             </div>
 
-            <!-- Route Subtext Hint -->
-            <div class="route-subtext text-center" id="route-subtext-hint">
-                <p>전체 노선을 확인하세요.</p>
-            </div>
-
-            <!-- Direction Headers -->
-            <div class="direction-divider">
-                <h3>To Resort <span class="badge-sub">오션월드 행</span></h3>
-            </div>
-
             <div class="route-content active" id="all">
-                <div class="route-cards">
-                    <div class="route-card">
-                        <div class="route-header">서울 동부/북부 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:30</span>
-                        </div>
-                        <div class="route-stops">홍대입구 &rarr; 동대문역사문화공원 &rarr; 건대입구 &rarr; 강변역</div>
+                <!-- Group 1: Seoul East/North -->
+                <div class="route-group group-seoul-en" data-region="seoul-east-north">
+                    <div class="group-header">
+                        <div class="group-title"><span class="color-dot bg-blue"></span> 서울 동부/북부</div>
+                        <div class="group-badge">8개 정류장</div>
                     </div>
-                    <div class="route-card">
-                        <div class="route-header">서울 동부/북부 방면 <span class="badge-late">늦은 출발</span></div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 09:00</span>
+                    <div class="route-rows">
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-blue">06:30</div>
+                                <div class="row-path">홍대입구 &rarr; 동대문역사문화공원 &rarr; 건대입구 &rarr; 강변역</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>홍대입구역</strong>
+                                        <span>8번 출구 전방 50m, ABC Mart 맞은편</span> <a href="#" class="map-link">지도▶</a>
+                                    </li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>동대문역사문화공원</strong>
+                                        <span>4번 출구, H&C파크 스테이션 앞</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>건대입구역</strong>
+                                        <span>2호선 5번 출구, 롯데백화점 택시승강장</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>강변역</strong>
+                                        <span>버스환승센터 2번 승강장</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="route-stops">홍대입구 &rarr; 건대입구</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">서울 동부/북부 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:35</span>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-blue">09:00</div>
+                                <div class="row-path">홍대입구 &rarr; 건대입구</div>
+                                <div class="row-actions">
+                                    <span class="badge-late">늦은 출발</span>
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>홍대입구역</strong>
+                                        <span>8번 출구 전방 50m, ABC Mart 맞은편</span> <a href="#" class="map-link">지도▶</a>
+                                    </li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>건대입구역</strong>
+                                        <span>2호선 5번 출구, 롯데백화점 택시승강장</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="route-stops">의정부 &rarr; 노원 &rarr; 태릉입구</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">서울 동부/북부 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:50</span>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-blue">06:35</div>
+                                <div class="row-path">의정부 &rarr; 노원 &rarr; 태릉입구</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>의정부</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>노원</strong> <span>위치
+                                            정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>태릉입구</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="route-stops">성신여대입구 &rarr; 회기 &rarr; 구리</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">서울 남부/서부 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:40</span>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-blue">06:50</div>
+                                <div class="row-path">성신여대입구 &rarr; 회기 &rarr; 구리</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>성신여대입구</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>회기</strong> <span>위치
+                                            정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-blue"></i> <strong>구리</strong> <span>위치
+                                            정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="route-stops">사당 &rarr; 신도림 &rarr; 홍대입구</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">서울 남부/서부 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:50</span>
-                        </div>
-                        <div class="route-stops">강남역 &rarr; 양재역</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">경기 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:00</span>
-                        </div>
-                        <div class="route-stops">파주 &rarr; 일산 &rarr; 수색</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">경기 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:10</span>
-                        </div>
-                        <div class="route-stops">수원 &rarr; 안양 &rarr; 사당</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">경기 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:20</span>
-                        </div>
-                        <div class="route-stops">고양 &rarr; 은평</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">경기 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:40</span>
-                        </div>
-                        <div class="route-stops">하남 &rarr; 구리</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">인천 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:00</span>
-                        </div>
-                        <div class="route-stops">인천 &rarr; 부평 &rarr; 신도림</div>
-                    </div>
-                    <div class="route-card">
-                        <div class="route-header">인천 방면</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:10</span>
-                        </div>
-                        <div class="route-stops">송도 &rarr; 부평</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="text-center mt-4">
-                <a href="#" class="view-link view-all-link">전체 노선 및 요금 보기 &rarr;</a>
-            </div>
+                <!-- Group 2: Seoul South/West -->
+                <div class="route-group group-seoul-sw" data-region="seoul-south-west">
+                    <div class="group-header">
+                        <div class="group-title"><span class="color-dot bg-teal"></span> 서울 남부/서부</div>
+                        <div class="group-badge">4개 정류장</div>
+                    </div>
+                    <div class="route-rows">
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-teal">06:40</div>
+                                <div class="row-path">사당 &rarr; 신도림 &rarr; 홍대입구</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-teal"></i> <strong>사당</strong> <span>1번
+                                            출구 노상공영주차장 방면</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-teal"></i> <strong>신도림</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-teal"></i> <strong>홍대입구</strong>
+                                        <span>8번 출구 전방 50m</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-teal">06:50</div>
+                                <div class="row-path">강남역 &rarr; 양재역</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-teal"></i> <strong>강남역</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-teal"></i> <strong>양재역</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Direction Headers -->
-            <div class="direction-divider mt-space">
-                <h3>From Resort <span class="badge-sub">귀가 행</span></h3>
-            </div>
+                <!-- Group 3: Gyeonggi -->
+                <div class="route-group group-gyeonggi" data-region="gyeonggi">
+                    <div class="group-header">
+                        <div class="group-title"><span class="color-dot bg-green"></span> 경기</div>
+                        <div class="group-badge">7개 정류장</div>
+                    </div>
+                    <div class="route-rows">
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-green">06:00</div>
+                                <div class="row-path">파주 &rarr; 일산 &rarr; 수색</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>파주</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>일산</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>수색</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-green">06:10</div>
+                                <div class="row-path">수원 &rarr; 안양 &rarr; 사당</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>수원</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>안양</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>사당</strong>
+                                        <span>1번 출구 노상공영주차장 방면</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-green">06:20</div>
+                                <div class="row-path">고양 &rarr; 은평</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>고양</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>은평</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-green">06:40</div>
+                                <div class="row-path">하남 &rarr; 구리</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>하남</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-green"></i> <strong>구리</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="route-content active return-routes">
-                <h4 class="time-header">13:00 출발</h4>
+                <!-- Group 4: Incheon -->
+                <div class="route-group group-incheon" data-region="incheon">
+                    <div class="group-header">
+                        <div class="group-title"><span class="color-dot bg-purple"></span> 인천</div>
+                        <div class="group-badge">3개 정류장</div>
+                    </div>
+                    <div class="route-rows">
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-purple">06:00</div>
+                                <div class="row-path">인천 &rarr; 부평 &rarr; 신도림</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-purple"></i> <strong>인천</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-purple"></i> <strong>부평</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-purple"></i> <strong>신도림</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="route-row">
+                            <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-time color-purple">06:10</div>
+                                <div class="row-path">송도 &rarr; 부평</div>
+                                <div class="row-actions">
+                                    <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                                </div>
+                            </div>
+                            <div class="row-detail">
+                                <ul class="station-list">
+                                    <li><i class="fa-solid fa-location-dot color-purple"></i> <strong>송도</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                    <li><i class="fa-solid fa-location-dot color-purple"></i> <strong>부평</strong>
+                                        <span>위치 정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
+                                </ul>
+                                <div class="row-cta"><a href="#booking" class="btn btn-outline">이 노선 예약하기 &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 mb-4">
+                    <a href="#booking" class="btn btn-primary">전체 노선 및 요금 상세 보기 &rarr;</a>
+                </div>
+
+                <div class="direction-divider mt-space">
+                    <h3><i class="fa-solid fa-bus-simple"></i> From Resort <span class="badge-sub">오션월드 발</span></h3>
+                </div>
+
+                <h4 class="time-header mt-4">13:00 출발</h4>
                 <div class="route-cards">
                     <div class="route-card">
                         <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
@@ -300,33 +467,11 @@
                         <div class="route-period">운행 기간: 07.25 ~ 08.16</div>
                     </div>
                 </div>
-            </div>
 
+            </div> <!-- .route-content -->
         </div>
     </section>
 
-    <!-- Boarding Map Teaser -->
-    <section class="map-teaser" id="boarding">
-        <div class="container section-animate">
-            <div class="map-container">
-                <div class="map-info">
-                    <h2>탑승 위치 안내</h2>
-                    <p>수도권 전역 36개 주요 거점에서 워터파크까지 가장 빠르고 편안하게 모십니다.</p>
-                    <ul class="key-stops">
-                        <li><i class="fa-solid fa-map-pin"></i> <strong>홍대입구역:</strong> 8번 출구 전방 50m</li>
-                        <li><i class="fa-solid fa-map-pin"></i> <strong>종합운동장역:</strong> 2번 출구</li>
-                        <li><i class="fa-solid fa-map-pin"></i> <strong>사당역:</strong> 1번 출구 공영주차장</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary mt-4">모든 탑승지 위치 보기 <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="map-image-wrap">
-                    <img src="images/bus_stop_placeholder.png" alt="셔틀버스 탑승장 전경"
-                        onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
-                    <div class="map-overlay-badge">편안한 여정의 시작</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Core Guidelines -->
     <section class="guidelines section-light">

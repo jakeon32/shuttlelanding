@@ -44,16 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Route Tabs
     const routeTabs = document.querySelectorAll('.route-tab');
-    const routeContents = document.querySelectorAll('.route-content:not(.return-routes)'); // Only filter 'To Resort' areas
-    const routeSubtextHint = document.getElementById('route-subtext-hint');
-
-    const subtextMap = {
-        'all': '전체 노선을 확인하세요.',
-        'seoul-east-north': '홍대 · 건대 · 노원 · 의정부 방면',
-        'seoul-south-west': '사당 · 신도림 · 강남 방면',
-        'gyeonggi': '성남 · 고양 · 파주 · 구리 방면',
-        'incheon': '인천 · 부평 · 송도 방면'
-    };
+    const routeGroups = document.querySelectorAll('.route-group');
 
     routeTabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -61,34 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Remove active classes
             routeTabs.forEach(t => t.classList.remove('active'));
-
-            // Handle content filtering for 'To Resort' only
-            const allRouteCards = document.querySelectorAll('#all .route-card');
-
-            // Add active class to clicked tab
             tab.classList.add('active');
 
-            // Update Subtext
-            if (routeSubtextHint && subtextMap[targetId]) {
-                routeSubtextHint.innerHTML = `<p>${subtextMap[targetId]}</p>`;
-            }
-
-            // Filter logic (since they are all inside #all now to simplify DOM based on the new design)
+            // Filter logic
             if (targetId === 'all') {
-                allRouteCards.forEach(card => card.style.display = 'flex');
+                routeGroups.forEach(group => group.style.display = 'block');
             } else {
-                let searchString = '';
-                if (targetId === 'seoul-east-north') searchString = '서울 동부/북부';
-                if (targetId === 'seoul-south-west') searchString = '서울 남부/서부';
-                if (targetId === 'gyeonggi') searchString = '경기';
-                if (targetId === 'incheon') searchString = '인천';
-
-                allRouteCards.forEach(card => {
-                    const header = card.querySelector('.route-header').textContent;
-                    if (header.includes(searchString)) {
-                        card.style.display = 'flex';
+                routeGroups.forEach(group => {
+                    if (group.getAttribute('data-region') === targetId) {
+                        group.style.display = 'block';
                     } else {
-                        card.style.display = 'none';
+                        group.style.display = 'none';
                     }
                 });
             }
@@ -138,3 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger initial scroll to run animations if already scrolled
     window.dispatchEvent(new Event('scroll'));
 });
+
+// Global Function to toggle route details accordion
+window.toggleRouteDetail = function (element) {
+    const row = element.closest('.route-row');
+    row.classList.toggle('open');
+};
