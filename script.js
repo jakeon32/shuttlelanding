@@ -148,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
         flatpickr(modalDatePicker, {
             locale: "ko",
             inline: true,
-            minDate: "2025-07-11",
-            maxDate: "2025-08-17",
+            minDate: "2026-07-11",
+            maxDate: "2026-08-17",
             dateFormat: "Y-m-d",
             disableMobile: true,
             onChange: function (selectedDates) {
