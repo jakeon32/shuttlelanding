@@ -142,11 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modal Flatpickr Date Selection
+    // Modal Flatpickr Date Selection (Inline)
     const modalDatePicker = document.getElementById('modalDatePicker');
     if (modalDatePicker) {
         flatpickr(modalDatePicker, {
             locale: "ko",
+            inline: true,
             minDate: "2025-07-11",
             maxDate: "2025-08-17",
             dateFormat: "Y-m-d",
@@ -154,8 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
             onChange: function (selectedDates) {
                 if (selectedDates.length > 0) {
                     searchTicketsBtn.disabled = false;
+                    searchTicketsBtn.classList.add('active-pulse');
                 } else {
                     searchTicketsBtn.disabled = true;
+                    searchTicketsBtn.classList.remove('active-pulse');
                 }
             }
         });
