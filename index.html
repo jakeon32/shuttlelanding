@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivaldi Ocean World Shuttle Bus | Direct & Easy</title>
-    <meta name="description" content="Direct shuttle bus from Seoul, Gyeonggi & Incheon to Vivaldi Ocean World. Book your tickets easily and arrive before the park opens!">
+    <meta name="description"
+        content="Direct shuttle bus from Seoul, Gyeonggi & Incheon to Vivaldi Ocean World. Book your tickets easily and arrive before the park opens!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Header & Navigation -->
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="#" class="logo">
-                <i class="fa-solid fa-water"></i> Ocean World Shuttle
+                <i class="fa-solid fa-water"></i> VIVALDI PARK
             </a>
             <nav class="nav-links">
-                <a href="#routes">Routes & Rates</a>
-                <a href="#boarding">Boarding Locations</a>
-                <a href="#booking" class="btn btn-outline">Go to Ocean World</a>
+                <a href="#routes">노선 & 요금</a>
+                <a href="#boarding">탑승 위치</a>
+                <a href="#booking" class="btn btn-outline">오션월드 바로가기</a>
             </nav>
             <div class="header-actions">
-                <a href="#">Login</a>
-                <a href="#" class="btn btn-primary">Check Booking</a>
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+                <a href="#" class="btn btn-primary">예약 확인</a>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <i class="fa-solid fa-bars"></i>
@@ -37,16 +43,17 @@
     <!-- Hero Section -->
     <section class="hero" id="booking">
         <div class="hero-bg">
-            <img src="hero_waterpark_bg.jpg" alt="Vivaldi Ocean World Waterpark" onerror="this.src='https://images.unsplash.com/photo-1582655299285-d72b5c7f8a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'">
+            <img src="ocean_world_summer_hero.png" alt="오션월드 전경"
+                onerror="this.src='https://images.unsplash.com/photo-1582655299285-d72b5c7f8a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'">
             <div class="hero-overlay"></div>
         </div>
         <div class="container hero-content">
             <div class="hero-text animate-up">
-                <span class="badge">Hot Summer Season: Jul 11 – Aug 17, 2026</span>
-                <h1>Ocean World Shuttle Bus</h1>
-                <p>Direct premium shuttle from Seoul, Gyeonggi & Incheon to Ocean World.</p>
+                <span class="badge">2025년 7월 11일 ~ 8월 17일</span>
+                <h1>오션월드 셔틀버스</h1>
+                <p>서울, 경기, 인천에서 오션월드까지 편안하게 바로 가세요.</p>
             </div>
-            
+
             <div class="booking-widget animate-up delay-1">
                 <div class="widget-tabs">
                     <button class="tab-btn active">One Way</button>
@@ -56,18 +63,30 @@
                     <div class="form-group">
                         <label>From</label>
                         <select required id="from-select">
-                            <optgroup label="Seoul">
-                                <option value="hongdae">Hongdae / Gangbyeon</option>
-                                <option value="sadang">Sadang / Cheonho</option>
-                                <option value="balsan">Balsan / Yeouido</option>
-                                <option value="uijeongbu">Uijeongbu / Nowon</option>
+                            <optgroup label="서울 동부/북부">
+                                <option value="hongdae">홍대입구</option>
+                                <option value="dongdaemun">동대문역사문화공원</option>
+                                <option value="konkuk">건대입구</option>
+                                <option value="gangbyeon">강변역</option>
+                                <option value="uijeongbu">의정부</option>
+                                <option value="nowon">노원</option>
+                                <option value="sungshin">성신여대입구</option>
                             </optgroup>
-                            <optgroup label="Gyeonggi">
-                                <option value="ilsan">Ilsan (Unjeong)</option>
-                                <option value="suwon">Suwon / Seongnam</option>
+                            <optgroup label="서울 남부/서부">
+                                <option value="sadang">사당</option>
+                                <option value="sindorim">신도림</option>
+                                <option value="gangnam">강남역</option>
                             </optgroup>
-                            <optgroup label="Incheon">
-                                <option value="incheon">Incheon / Bucheon</option>
+                            <optgroup label="경기">
+                                <option value="paju">파주</option>
+                                <option value="ilsan">일산</option>
+                                <option value="suwon">수원</option>
+                                <option value="goyang">고양</option>
+                                <option value="hanam">하남</option>
+                            </optgroup>
+                            <optgroup label="인천">
+                                <option value="incheon">인천</option>
+                                <option value="songdo">송도</option>
                             </optgroup>
                         </select>
                     </div>
@@ -77,22 +96,23 @@
                     <div class="form-group">
                         <label>To</label>
                         <select required disabled>
-                            <option selected>Vivaldi Ocean World</option>
+                            <option selected>오션월드 (Vivaldi Park)</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Date</label>
-                        <input type="date" required min="2026-07-11" max="2026-08-17">
+                        <label>Departure</label>
+                        <input type="date" required min="2025-07-11" max="2025-08-17">
                     </div>
                     <div class="form-group">
                         <label>Passengers</label>
                         <select required>
-                            <option>1 Adult</option>
-                            <option>2 Adults</option>
-                            <option>2 Adults, 1 Child</option>
+                            <option>성인 1명</option>
+                            <option>성인 2명</option>
+                            <option>성인 2명, 아동 1명</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    <button type="submit" class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i>
+                        Search</button>
                 </form>
             </div>
         </div>
@@ -104,22 +124,22 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-solid fa-bus"></i></div>
                 <h3>Door-to-Door</h3>
-                <p>Seoul → Ocean World, no transfers needed.</p>
+                <p>수도권에서 오션월드까지, 환승 없이 한 번에.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-regular fa-clock"></i></div>
-                <h3>Early Departure</h3>
-                <p>Arrive before the park even opens.</p>
+                <h3>이른 아침 출발</h3>
+                <p>워터파크 오픈 시간 전 도착, 하루를 길게 즐기세요.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-solid fa-won-sign"></i></div>
-                <h3>From ₩8,000</h3>
-                <p>Foreign visitor exclusive special fare.</p>
+                <h3>외국인 특별 할인</h3>
+                <p>외국인 전용 특가로 더욱 저렴하게 이용 가능.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <h3>36+ Stops</h3>
-                <p>Across Seoul, Gyeonggi & Incheon.</p>
+                <h3>다양한 탑승지</h3>
+                <p>서울, 경기, 인천 주요 거점에서 편리하게 탑승.</p>
             </div>
         </div>
     </section>
@@ -128,76 +148,177 @@
     <section class="routes-section" id="routes">
         <div class="container section-animate">
             <div class="section-header">
-                <h2>Routes & Rates Overview</h2>
-                <p>Find the most convenient departure point near you.</p>
+                <h2>내 출발지 찾기</h2>
+                <p>가장 가까운 탑승장을 확인하세요.</p>
             </div>
-            
+
             <div class="route-tabs">
-                <button class="route-tab active" data-target="seoul">Seoul</button>
-                <button class="route-tab" data-target="gyeonggi">Gyeonggi</button>
-                <button class="route-tab" data-target="incheon">Incheon</button>
+                <button class="route-tab active" data-target="all">전체</button>
+                <button class="route-tab" data-target="seoul-east-north">서울 동부/북부</button>
+                <button class="route-tab" data-target="seoul-south-west">서울 남부/서부</button>
+                <button class="route-tab" data-target="gyeonggi">경기</button>
+                <button class="route-tab" data-target="incheon">인천</button>
             </div>
 
-            <div class="route-content active" id="seoul">
+            <!-- Route Subtext Hint -->
+            <div class="route-subtext text-center" id="route-subtext-hint">
+                <p>전체 노선을 확인하세요.</p>
+            </div>
+
+            <!-- Direction Headers -->
+            <div class="direction-divider">
+                <h3>To Resort <span class="badge-sub">오션월드 행</span></h3>
+            </div>
+
+            <div class="route-content active" id="all">
                 <div class="route-cards">
                     <div class="route-card">
-                        <div class="route-header">Hongdae / Gangbyeon</div>
+                        <div class="route-header">서울 동부/북부 방면</div>
                         <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:30 - 07:30 AM</span>
-                            <span><i class="fa-solid fa-ticket"></i> ₩10,000 (One Way)</span>
+                            <span><i class="fa-regular fa-clock"></i> 06:30</span>
                         </div>
-                        <div class="route-stops">Hongdae → Dongdaemun → Konkuk Univ. → Gangbyeon</div>
-                        <a href="#" class="view-link">View Full Schedule &rarr;</a>
+                        <div class="route-stops">홍대입구 &rarr; 동대문역사문화공원 &rarr; 건대입구 &rarr; 강변역</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
                     </div>
                     <div class="route-card">
-                        <div class="route-header">Sadang / Cheonho</div>
+                        <div class="route-header">서울 동부/북부 방면 <span class="badge-late">늦은 출발</span></div>
                         <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:50 - 08:00 AM</span>
-                            <span><i class="fa-solid fa-ticket"></i> ₩10,000 (One Way)</span>
+                            <span><i class="fa-regular fa-clock"></i> 09:00</span>
                         </div>
-                        <div class="route-stops">Sadang → Sports Complex → Cheonho → Hanam</div>
-                        <a href="#" class="view-link">View Full Schedule &rarr;</a>
+                        <div class="route-stops">홍대입구 &rarr; 건대입구</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">서울 동부/북부 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:35</span>
+                        </div>
+                        <div class="route-stops">의정부 &rarr; 노원 &rarr; 태릉입구</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">서울 동부/북부 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:50</span>
+                        </div>
+                        <div class="route-stops">성신여대입구 &rarr; 회기 &rarr; 구리</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">서울 남부/서부 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:40</span>
+                        </div>
+                        <div class="route-stops">사당 &rarr; 신도림 &rarr; 홍대입구</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">서울 남부/서부 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:50</span>
+                        </div>
+                        <div class="route-stops">강남역 &rarr; 양재역</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">경기 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:00</span>
+                        </div>
+                        <div class="route-stops">파주 &rarr; 일산 &rarr; 수색</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">경기 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:10</span>
+                        </div>
+                        <div class="route-stops">수원 &rarr; 안양 &rarr; 사당</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">경기 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:20</span>
+                        </div>
+                        <div class="route-stops">고양 &rarr; 은평</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">경기 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:40</span>
+                        </div>
+                        <div class="route-stops">하남 &rarr; 구리</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">인천 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:00</span>
+                        </div>
+                        <div class="route-stops">인천 &rarr; 부평 &rarr; 신도림</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-header">인천 방면</div>
+                        <div class="route-details">
+                            <span><i class="fa-regular fa-clock"></i> 06:10</span>
+                        </div>
+                        <div class="route-stops">송도 &rarr; 부평</div>
+                        <a href="#" class="view-link btn btn-primary mt-4">예약하기</a>
                     </div>
                 </div>
             </div>
 
-            <div class="route-content" id="gyeonggi">
+            <div class="text-center mt-4">
+                <a href="#" class="view-link view-all-link">전체 노선 및 요금 보기 &rarr;</a>
+            </div>
+
+            <!-- Direction Headers -->
+            <div class="direction-divider mt-space">
+                <h3>From Resort <span class="badge-sub">귀가 행</span></h3>
+            </div>
+
+            <div class="route-content active return-routes">
+                <h4 class="time-header">13:00 출발</h4>
                 <div class="route-cards">
                     <div class="route-card">
-                        <div class="route-header">Ilsan (Unjeong)</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:30 - 07:20 AM</span>
-                            <span><i class="fa-solid fa-ticket"></i> ₩10,000 (One Way)</span>
-                        </div>
-                        <div class="route-stops">Unjeong → Daehwa → Madu → Hwajeong</div>
-                        <a href="#" class="view-link">View Full Schedule &rarr;</a>
+                        <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
+                        <div class="route-period">운행 기간: 07.11 ~ 08.17</div>
                     </div>
                     <div class="route-card">
-                        <div class="route-header">Suwon / Seongnam</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:30 - 07:25 AM</span>
-                            <span><i class="fa-solid fa-ticket"></i> ₩10,000 (One Way)</span>
-                        </div>
-                        <div class="route-stops">Yeongtong → Jukjeon → Seohyeon → Yatap</div>
-                        <a href="#" class="view-link">View Full Schedule &rarr;</a>
+                        <div class="route-stops return-stops">오션월드 &rarr; 홍대입구역</div>
+                        <div class="route-period">운행 기간: 07.11 ~ 08.17</div>
+                    </div>
+                </div>
+
+                <h4 class="time-header mt-4">18:00 출발</h4>
+                <div class="route-cards">
+                    <div class="route-card">
+                        <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
+                        <div class="route-period">운행 기간: 07.11 ~ 08.17</div>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-stops return-stops">오션월드 &rarr; 홍대입구역</div>
+                        <div class="route-period">운행 기간: 07.11 ~ 08.17</div>
+                    </div>
+                    <div class="route-card">
+                        <div class="route-stops return-stops">오션월드 &rarr; 전 지역</div>
+                        <div class="route-period">운행 기간: 07.11 ~ 08.17</div>
+                    </div>
+                </div>
+
+                <h4 class="time-header mt-4">21:00 출발</h4>
+                <div class="route-cards">
+                    <div class="route-card highlight-card">
+                        <div class="route-header"><span class="badge-peak">7/25~8/16 Only 성수기 한정</span></div>
+                        <div class="route-stops return-stops">오션월드 &rarr; 종합운동장역</div>
+                        <div class="route-period">운행 기간: 07.25 ~ 08.16</div>
                     </div>
                 </div>
             </div>
 
-            <div class="route-content" id="incheon">
-                <div class="route-cards">
-                    <div class="route-card">
-                        <div class="route-header">Incheon / Bucheon</div>
-                        <div class="route-details">
-                            <span><i class="fa-regular fa-clock"></i> 06:20 - 07:00 AM</span>
-                            <span><i class="fa-solid fa-ticket"></i> ₩10,000 (One Way)</span>
-                        </div>
-                        <div class="route-stops">Incheon City Hall → Bupyeong → Songnae → Bucheon City Hall</div>
-                        <a href="#" class="view-link">View Full Schedule &rarr;</a>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </section>
 
@@ -209,14 +330,17 @@
                     <h2>Boarding Locations</h2>
                     <p>Over 36 stops across the metropolitan area smoothly connecting you to the waterpark.</p>
                     <ul class="key-stops">
-                        <li><i class="fa-solid fa-map-pin"></i> <strong>Hongik Univ. Stn:</strong> Exit 8, 50m ahead</li>
+                        <li><i class="fa-solid fa-map-pin"></i> <strong>Hongik Univ. Stn:</strong> Exit 8, 50m ahead
+                        </li>
                         <li><i class="fa-solid fa-map-pin"></i> <strong>Sports Complex Stn:</strong> Exit 2</li>
                         <li><i class="fa-solid fa-map-pin"></i> <strong>Sadang Stn:</strong> Exit 1, Public Parking</li>
                     </ul>
-                    <a href="#" class="btn btn-primary mt-4">View All Boarding Maps <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-primary mt-4">View All Boarding Maps <i
+                            class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="map-image-wrap">
-                    <img src="shuttle_map_teaser.jpg" alt="Shuttle Map Network" onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    <img src="shuttle_map_teaser.jpg" alt="Shuttle Map Network"
+                        onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                     <div class="map-overlay-badge">Interactive Map Inside</div>
                 </div>
             </div>
@@ -227,24 +351,24 @@
     <section class="guidelines section-light">
         <div class="container section-animate">
             <div class="section-header text-center">
-                <h2>Before You Book</h2>
-                <p>Essential information for a smooth journey.</p>
+                <h2>핵심 안내</h2>
+                <p>오션월드 셔틀버스를 매끄럽게 이용하기 위한 필수 정보입니다.</p>
             </div>
             <div class="guide-grid">
                 <div class="guide-card alert-blue">
                     <div class="guide-icon">⏳</div>
-                    <h4>Arrive 5 Mins Early</h4>
-                    <p>All buses depart strictly on time. No exceptions can be made for late arrivals.</p>
+                    <h4>출발 5분 전 탑승 완료</h4>
+                    <p>모든 버스는 정시 출발하며, 지연 탑승은 불가합니다.</p>
                 </div>
                 <div class="guide-card alert-orange">
-                    <div class="guide-icon">💵</div>
-                    <h4>Cash Only On-Site</h4>
-                    <p>If you don't book online, on-site payment is cash only subject to seat availability.</p>
+                    <div class="guide-icon">💳</div>
+                    <h4>카드 결제는 온라인 예약만</h4>
+                    <p>온라인 미예약 시 현장 탑승은 현금 결제만 가능합니다.</p>
                 </div>
                 <div class="guide-card alert-red">
                     <div class="guide-icon">❌</div>
-                    <h4>Cancellation Policy</h4>
-                    <p>Free cancellation until 16:00 the day before departure. No refunds after the deadline.</p>
+                    <h4>전날 16시 이전 무료 취소</h4>
+                    <p>출발 전일 오후 4시 이후에는 취소 및 환불이 불가합니다.</p>
                 </div>
             </div>
         </div>
@@ -254,31 +378,35 @@
     <section class="faq-section" id="faq">
         <div class="container section-animate">
             <div class="section-header text-center">
-                <h2>Frequently Asked Questions</h2>
+                <h2>자주 묻는 질문</h2>
             </div>
             <div class="accordion">
                 <div class="accordion-item">
-                    <button class="accordion-header">What if I miss the bus? <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="accordion-header">버스를 놓치면 어떻게 되나요? <i class="fa-solid fa-chevron-down"></i></button>
                     <div class="accordion-content">
-                        <p>Buses run on a strict schedule and cannot wait. If you miss your bus, you will need to find alternative transportation to the resort. No refunds are provided for missed departures.</p>
+                        <p>셔틀버스는 정해진 시간에 정확히 출발하며 대기하지 않습니다. 버스를 놓치신 경우 리조트로 가는 대체 교통수단을 직접 알아보셔야 하며, 미탑승으로 인한 환불은 제공되지
+                            않습니다.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Is this fare only for foreigners? <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="accordion-header">표시된 요금은 외국인 전용인가요? <i
+                            class="fa-solid fa-chevron-down"></i></button>
                     <div class="accordion-content">
-                        <p>Yes, the discounted fare shown (₩10,000 one-way) is a special promotion for foreign passport holders. Proof of ID may be required upon boarding.</p>
+                        <p>네, 웹사이트에 표시된 할인 요금(편도 ₩10,000)은 외국인 여권 소지자를 위한 특별 프로모션 요금입니다. 탑승 시 신분증(여권) 확인이 필요할 수 있습니다.
+                        </p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Can children ride? What is the child fare? <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="accordion-header">어린이도 탑승할 수 있나요? 요금은 얼마인가요? <i
+                            class="fa-solid fa-chevron-down"></i></button>
                     <div class="accordion-content">
-                        <p>Yes, children are welcome. The child fare is ₩8,000 for one-way and ₩16,000 for a round-trip ticket. Infants under 36 months may ride free of charge if they do not occupy a seat.</p>
+                        <p>물론입니다. 아동 요금은 편도 ₩8,000, 왕복 ₩16,000 입니다. 36개월 미만 유아는 보호자가 안고 탑승할 경우 무료로 이용 가능합니다.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">What is the luggage policy? <i class="fa-solid fa-chevron-down"></i></button>
+                    <button class="accordion-header">수하물 규정이 어떻게 되나요? <i class="fa-solid fa-chevron-down"></i></button>
                     <div class="accordion-content">
-                        <p>Each passenger is allowed one piece of standard luggage/bag. Large oversized items (like surfboards or large coolers) may not be permitted due to storage constraints.</p>
+                        <p>승객 1인당 기본 짐 1개까지 반입이 가능합니다. 서핑보드, 대형 아이스박스 등 부피가 지나치게 큰 물품은 수납 공간 제약으로 인해 탑승이 거부될 수 있습니다.</p>
                     </div>
                 </div>
             </div>
@@ -291,37 +419,46 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo text-white">
-                        <i class="fa-solid fa-water"></i> Ocean World Shuttle
+                        <i class="fa-solid fa-water"></i> VIVALDI PARK
                     </a>
-                    <p class="mt-4 opacity-75">Your direct connection to summer fun.</p>
+                    <p class="mt-4 opacity-75">여름을 즐기는 가장 빠른 길거리</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>퀵링크</h4>
                     <ul>
-                        <li><a href="#routes">Routes & Rates</a></li>
-                        <li><a href="#boarding">Boarding Locations</a></li>
+                        <li><a href="#routes">노선 & 요금</a></li>
+                        <li><a href="#boarding">탑승 위치</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#">Go to Ocean World Main</a></li>
+                        <li><a href="#">오션월드 바로가기</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contact Support</h4>
+                    <h4>고객센터</h4>
                     <ul>
-                        <li><i class="fa-solid fa-phone"></i> +82-1588-4888</li>
-                        <li><i class="fa-solid fa-envelope"></i> help@oceanworldshuttle.kr</li>
+                        <li><i class="fa-solid fa-phone"></i> +82-31-765-7965</li>
+                        <li><i class="fa-solid fa-envelope"></i> dmbus66@naver.com</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Vivaldi Park Ocean World. All rights reserved.</p>
+                <div class="company-info">
+                    <p>대표: 최형욱 | 주소: 경기도 광주시 경충대로 1514-25 | 사업자번호: 126-81-21460</p>
+                    <p class="mt-2">&copy; 2026 Vivaldi Park. All rights reserved.</p>
+                </div>
                 <div class="legal-links">
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Floating Action Button (Mobile Only) -->
+    <a href="#booking" class="fab-booking">
+        지금 예약하기
+    </a>
+
     <script src="script.js"></script>
 </body>
+
 </html>
