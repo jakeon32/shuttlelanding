@@ -109,49 +109,84 @@ document.addEventListener('DOMContentLoaded', () => {
         // Just ensuring the values are respected by JS if needed
     }
 
-    // Initialize Flatpickr for Date Selection
-    const dateInputs = document.querySelectorAll('.date-select-input');
-    if (dateInputs.length > 0) {
-        flatpickr(dateInputs, {
+    // Booking Modal Logic
+    const bookingModal = document.getElementById('bookingModal');
+    const openModalBtns = document.querySelectorAll('.btn-open-modal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const searchTicketsBtn = document.getElementById('modalSearchTicketsBtn');
+
+    // Open Modal
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            bookingModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    // Close Modal
+    function closeModal() {
+        if (bookingModal) bookingModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    if (bookingModal) {
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Modal Flatpickr Date Selection
+    const modalDatePicker = document.getElementById('modalDatePicker');
+    if (modalDatePicker) {
+        flatpickr(modalDatePicker, {
             locale: "ko",
-            minDate: "2025-07-11", // Example season start
-            maxDate: "2025-08-17", // Example season end
+            minDate: "2025-07-11",
+            maxDate: "2025-08-17",
             dateFormat: "Y-m-d",
             disableMobile: true,
-            onReady: function (selectedDates, dateStr, instance) {
-                // Create a custom footer with a "Search Tickets" button
-                const btnContainer = document.createElement("div");
-                btnContainer.className = "flatpickr-footer-cta";
-
-                const searchBtn = document.createElement("button");
-                searchBtn.className = "btn btn-primary btn-search-tickets";
-                searchBtn.innerHTML = '티켓 검색 <i class="fa-solid fa-search"></i>';
-                searchBtn.disabled = true; // Disabled until a date is chosen
-
-                searchBtn.addEventListener("click", function () {
-                    const selected = instance.selectedDates[0];
-                    if (selected) {
-                        // Simulating a search action to anchor
-                        window.location.href = "#booking";
-                        instance.close();
-                    }
-                });
-
-                btnContainer.appendChild(searchBtn);
-                instance.calendarContainer.appendChild(btnContainer);
-
-                // Save reference to button inside instance for easy access
-                instance.searchBtnRef = searchBtn;
-            },
-            onChange: function (selectedDates, dateStr, instance) {
+            onChange: function (selectedDates) {
                 if (selectedDates.length > 0) {
-                    instance.searchBtnRef.disabled = false;
-                    instance.searchBtnRef.classList.add("active-pulse");
+                    searchTicketsBtn.disabled = false;
                 } else {
-                    instance.searchBtnRef.disabled = true;
-                    instance.searchBtnRef.classList.remove("active-pulse");
+                    searchTicketsBtn.disabled = true;
                 }
             }
+        });
+    }
+
+    // Passenger Counters
+    const countBtns = document.querySelectorAll('.count-btn');
+    countBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target') + 'Count';
+            const input = document.getElementById(targetId);
+            if (!input) return;
+
+            let val = parseInt(input.value);
+            const min = parseInt(input.getAttribute('min'));
+            const max = parseInt(input.getAttribute('max'));
+
+            if (btn.classList.contains('minus')) {
+                if (val > min) input.value = val - 1;
+            } else if (btn.classList.contains('plus')) {
+                if (val < max) input.value = val + 1;
+            }
+        });
+    });
+
+    // Search Tickets Action
+    if (searchTicketsBtn) {
+        searchTicketsBtn.addEventListener('click', () => {
+            closeModal();
+            // Simulate ticket search mapping
+            window.location.href = "#booking";
         });
     }
 

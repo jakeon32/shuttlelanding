@@ -168,7 +168,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +215,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                                             정보 준비 중</span> <a href="#" class="map-link">지도▶</a></li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +272,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +294,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -329,7 +329,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +354,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -376,7 +376,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +398,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -433,7 +433,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -455,7 +455,7 @@
                                     </li>
                                 </ul>
                                 <div class="row-cta">
-                                    <input type="text" class="btn btn-outline date-select-input" placeholder="날짜 선택 📅" readonly>
+                                    <button class="btn btn-outline btn-open-modal">예약하기 &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -577,6 +577,50 @@
             </div>
         </div>
     </section>
+
+    
+    <!-- Booking Modal -->
+    <div class="booking-modal-overlay" id="bookingModal">
+        <div class="booking-modal-content">
+            <button class="modal-close-btn" id="closeModal">&times;</button>
+            <h3 class="modal-title">예약 정보 입력</h3>
+            
+            <div class="modal-section">
+                <label>탑승 날짜</label>
+                <input type="text" id="modalDatePicker" class="form-control" placeholder="날짜 선택 ��" readonly>
+            </div>
+            
+            <div class="modal-section passenger-selection">
+                <label>탑승 인원</label>
+                <div class="passenger-row">
+                    <div class="passenger-type">
+                        <strong>대인</strong>
+                        <span>만 13세 이상</span>
+                    </div>
+                    <div class="passenger-counter">
+                        <button type="button" class="count-btn minus" data-target="adult">-</button>
+                        <input type="number" id="adultCount" value="1" min="1" max="10" readonly>
+                        <button type="button" class="count-btn plus" data-target="adult">+</button>
+                    </div>
+                </div>
+                <div class="passenger-row">
+                    <div class="passenger-type">
+                        <strong>소인</strong>
+                        <span>만 13세 미만</span>
+                    </div>
+                    <div class="passenger-counter">
+                        <button type="button" class="count-btn minus" data-target="child">-</button>
+                        <input type="number" id="childCount" value="0" min="0" max="10" readonly>
+                        <button type="button" class="count-btn plus" data-target="child">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" id="modalSearchTicketsBtn" class="btn btn-primary btn-full" disabled>티켓 검색결과 보기 <i class="fa-solid fa-search"></i></button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
