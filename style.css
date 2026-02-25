@@ -886,6 +886,11 @@ ul {
     font-size: 1.8rem;
 }
 
+.footer-brand .logo img {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
 .footer-brand p {
     max-width: 300px;
     color: rgba(255, 255, 255, 0.7);
