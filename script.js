@@ -197,8 +197,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatchEvent(new Event('scroll'));
 });
 
+// Keyboard support for route detail toggles
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('row-main')) {
+        e.preventDefault();
+        toggleRouteDetail(e.target);
+    }
+});
+
 // Global Function to toggle route details accordion
 window.toggleRouteDetail = function (element) {
     const row = element.closest('.route-row');
-    row.classList.toggle('open');
+    const isOpen = row.classList.contains('open');
+
+    // Close all open rows
+    document.querySelectorAll('.route-row.open').forEach(openRow => {
+        openRow.classList.remove('open');
+    });
+
+    // Open clicked row if it wasn't already open
+    if (!isOpen) {
+        row.classList.add('open');
+    }
 };

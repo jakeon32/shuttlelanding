@@ -2,7 +2,141 @@
 <html lang="en">
 
 <head>
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivaldi Ocean World Shuttle Bus | Direct & Easy</title>
+    <meta name="description"
+        content="Direct shuttle bus from Seoul, Gyeonggi & Incheon to Vivaldi Ocean World. Book your tickets easily and arrive before the park opens!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="images/vivaldipark-logo.png" alt="Vivaldi Park Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="#routes">노선 & 요금</a>
+                <a href="#boarding">탑승 위치</a>
+                <a href="#booking" class="btn btn-outline">오션월드 바로가기</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+                <a href="#" class="btn btn-primary">예약 확인</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="booking">
+        <div class="hero-bg">
+            <img src="images/ocean_world_summer_hero.png" alt="오션월드 전경"
+                onerror="this.src='https://images.unsplash.com/photo-1582655299285-d72b5c7f8a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text animate-up">
+                <h1>오션월드 셔틀버스</h1>
+                <p class="hero-subtitle">2025년 7월 11일 ~ 8월 17일 운행</p>
+                <p>서울, 경기, 인천에서 오션월드까지 편안하게 바로 가세요.</p>
+            </div>
+
+            <div class="booking-widget animate-up delay-1">
+                <div class="widget-tabs">
+                    <button class="tab-btn active">One Way</button>
+                    <button class="tab-btn">Round Trip</button>
+                </div>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label>From</label>
+                        <select required id="from-select">
+                            <optgroup label="서울 동부/북부">
+                                <option value="hongdae">홍대입구</option>
+                                <option value="dongdaemun">동대문역사문화공원</option>
+                                <option value="konkuk">건대입구</option>
+                                <option value="gangbyeon">강변역</option>
+                                <option value="uijeongbu">의정부</option>
+                                <option value="nowon">노원</option>
+                                <option value="sungshin">성신여대입구</option>
+                            </optgroup>
+                            <optgroup label="서울 남부/서부">
+                                <option value="sadang">사당</option>
+                                <option value="sindorim">신도림</option>
+                                <option value="gangnam">강남역</option>
+                            </optgroup>
+                            <optgroup label="경기">
+                                <option value="paju">파주</option>
+                                <option value="ilsan">일산</option>
+                                <option value="suwon">수원</option>
+                                <option value="goyang">고양</option>
+                                <option value="hanam">하남</option>
+                            </optgroup>
+                            <optgroup label="인천">
+                                <option value="incheon">인천</option>
+                                <option value="songdo">송도</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group icon-swap">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <select required disabled>
+                            <option selected>오션월드 (Vivaldi Park)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Departure</label>
+                        <input type="date" required min="2025-07-11" max="2025-08-17">
+                    </div>
+                    <div class="form-group">
+                        <label>Passengers</label>
+                        <select required>
+                            <option>성인 1명</option>
+                            <option>성인 2명</option>
+                            <option>성인 2명, 아동 1명</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-search"><i class="fa-solid fa-magnifying-glass"></i>
+                        Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Route Overview (Integrated Find My Stop) -->
+    <section class="routes-section" id="routes">
+        <div class="container section-animate">
+            <div class="section-header">
+                <h2>내 출발지 찾기</h2>
+                <p>가장 가까운 탑승장과 버스 시간을 확인하세요.</p>
+            </div>
+
+            <div class="route-tabs">
+                <button class="route-tab active" data-target="all">전체</button>
+                <button class="route-tab" data-target="seoul-east-north">서울 동부/북부</button>
+                <button class="route-tab" data-target="seoul-south-west">서울 남부/서부</button>
+                <button class="route-tab" data-target="gyeonggi">경기</button>
+                <button class="route-tab" data-target="incheon">인천</button>
+            </div>
+
+            <div class="route-content active" id="all">
 
                     <div class="route-group" data-region="seoul-east-north">
                         <div class="group-header">
@@ -14,9 +148,9 @@
                         </div>
                         <div class="route-rows">
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-blue">06:30</div>
-                                    <div class="row-path">홍대 &rarr; 동대문역사 &rarr; 건대입구 &rarr; 강변 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">홍대 &rarr; 동대문역사 &rarr; 건대입구 &rarr; 강변 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -45,7 +179,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -55,9 +189,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-blue">06:35</div>
-                                    <div class="row-path">의정부 &rarr; 노원 &rarr; 태릉 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">의정부 &rarr; 노원 &rarr; 태릉 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -81,7 +215,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -91,9 +225,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-blue">06:50</div>
-                                    <div class="row-path">성신여대 &rarr; 회기 &rarr; 구리 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">성신여대 &rarr; 회기 &rarr; 구리 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -117,7 +251,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:10</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -138,9 +272,9 @@
                         </div>
                         <div class="route-rows">
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">06:50</div>
-                                    <div class="row-path">사당 &rarr; 종합운동장 &rarr; 천호 &rarr; 하남 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">사당 &rarr; 종합운동장 &rarr; 천호 &rarr; 하남 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -169,7 +303,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:30</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -179,9 +313,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">06:30</div>
-                                    <div class="row-path">발산 &rarr; 목동 &rarr; 영등포신세계 &rarr; 여의도 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">발산 &rarr; 목동 &rarr; 영등포신세계 &rarr; 여의도 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -210,7 +344,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -220,9 +354,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">06:50</div>
-                                    <div class="row-path">불광 &rarr; 구파발 &rarr; 삼송 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">불광 &rarr; 구파발 &rarr; 삼송 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -246,7 +380,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -256,9 +390,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">09:00</div>
-                                    <div class="row-path">사당 &rarr; 종합운동장 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">사당 &rarr; 종합운동장 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <span class="badge-late">늦은 출발</span>
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
@@ -278,7 +412,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">11:20</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -288,9 +422,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-teal">15:00</div>
-                                    <div class="row-path">종합운동장 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">종합운동장 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <span class="badge-late">오후 출발</span>
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
@@ -305,7 +439,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">16:40</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -326,9 +460,9 @@
                         </div>
                         <div class="route-rows">
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-green">06:30</div>
-                                    <div class="row-path">상록수 &rarr; 산본 &rarr; 범계 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">상록수 &rarr; 산본 &rarr; 범계 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -352,7 +486,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -362,9 +496,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-green">06:30</div>
-                                    <div class="row-path">영통 &rarr; 죽전 &rarr; 서현 &rarr; 야탑 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">영통 &rarr; 죽전 &rarr; 서현 &rarr; 야탑 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -393,7 +527,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -403,9 +537,9 @@
                                 </div>
                             </div>
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-green">06:30</div>
-                                    <div class="row-path">운정 &rarr; 대화 &rarr; 마두 &rarr; 화정 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">운정 &rarr; 대화 &rarr; 마두 &rarr; 화정 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -434,7 +568,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -455,9 +589,9 @@
                         </div>
                         <div class="route-rows">
                             <div class="route-row">
-                                <div class="row-main" onclick="toggleRouteDetail(this)">
+                                <div class="row-main" role="button" tabindex="0" onclick="toggleRouteDetail(this)">
                                     <div class="row-time color-purple">06:20</div>
-                                    <div class="row-path">인천시청 &rarr; 부평 &rarr; 송내 &rarr; 부천시청 &rarr; 비발디 오션월드</div>
+                                    <div class="row-path">인천시청 &rarr; 부평 &rarr; 송내 &rarr; 부천시청 &rarr; 오션월드</div>
                                     <div class="row-actions">
                                         <i class="fa-solid fa-chevron-down toggle-icon"></i>
                                     </div>
@@ -486,7 +620,7 @@
                                         </li>
                                         <li>
                                             <div class="station-time">09:00</div>
-                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>비발디 오션월드</strong>
+                                            <i class="fa-solid fa-flag-checkered text-accent"></i> <strong>오션월드</strong>
                                             <span>도착 (예상)</span> 
                                         </li>
                                     </ul>
@@ -551,8 +685,8 @@
     <section class="guidelines section-light">
         <div class="container section-animate">
             <div class="section-header text-center">
-                <h2>핵심 안내</h2>
-                <p>오션월드 셔틀버스를 매끄럽게 이용하기 위한 필수 정보입니다.</p>
+                <h2>이용 안내</h2>
+                <p>오션월드 셔틀버스를 이용하기 위한 필수 정보</p>
             </div>
             <div class="guide-grid">
                 <div class="guide-card alert-blue">
@@ -669,7 +803,7 @@
                     <a href="#" class="logo text-white">
                         <img src="images/vivaldipark-logo.png" alt="Vivaldi Park Logo">
                     </a>
-                    <p class="mt-4 opacity-75">여름을 즐기는 가장 빠른 길거리</p>
+                    <p class="mt-4 opacity-75">여름을 즐기는 가장 빠른 길</p>
                 </div>
                 <div class="footer-links">
                     <h4>퀵링크</h4>
@@ -701,10 +835,6 @@
         </div>
     </footer>
 
-    <!-- Floating Action Button (Mobile Only) -->
-    <a href="#booking" class="fab-booking">
-        지금 예약하기
-    </a>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

@@ -24,6 +24,10 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -66,8 +70,24 @@ ul {
     text-align: center;
 }
 
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
 .mt-4 {
     margin-top: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.text-accent {
+    color: var(--accent);
 }
 
 /* Buttons */
@@ -105,6 +125,21 @@ ul {
 .btn-outline:hover {
     background: var(--primary);
     color: var(--white);
+}
+
+/* Focus states for accessibility */
+.btn:focus-visible,
+.tab-btn:focus-visible,
+.route-tab:focus-visible,
+.accordion-header:focus-visible,
+.count-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.row-main:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
 }
 
 /* Header */
@@ -189,6 +224,7 @@ ul {
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     padding-top: 100px;
@@ -565,7 +601,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 25px;
+    padding: 14px 20px;
     background: var(--light-bg);
     border-bottom: 1px solid #eaeaea;
 }
@@ -633,24 +669,20 @@ ul {
     flex-direction: column;
 }
 
-.route-row {
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.route-row:last-child {
-    border-bottom: none;
+.route-row + .route-row {
+    border-top: 1px solid #f1f5f9;
 }
 
 .row-main {
     display: flex;
     align-items: center;
-    padding: 20px 25px;
+    padding: 12px 20px;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .row-main:hover {
-    background: #f8fafc;
+    background: #eef4fb;
 }
 
 .row-time {
@@ -690,7 +722,7 @@ ul {
 
 .row-detail {
     display: none;
-    padding: 0 25px 25px;
+    padding: 15px 25px 20px;
     background: #f8fafc;
     border-top: 1px dashed #e2e8f0;
 }
@@ -700,55 +732,94 @@ ul {
     animation: fadeIn 0.3s ease forwards;
 }
 
+/* Timeline Route Map */
 .station-list {
-    margin-top: 20px;
+    margin-top: 0;
+    position: relative;
+    padding-left: 0;
+}
+
+/* Vertical connecting line */
+.station-list::after {
+    content: '';
+    position: absolute;
+    left: 69px;
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    background: #d1dbe6;
+    border-radius: 1px;
+    z-index: 0;
 }
 
 .station-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    display: grid;
+    grid-template-columns: 50px 20px auto 1fr auto;
+    gap: 0 10px;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
 }
 
 .station-list li:last-child {
-    margin-bottom: 0;
+    /* no change needed */
 }
 
+/* Timeline dot — replaces FA icon glyph */
 .station-list i {
-    margin-top: 4px;
-    margin-right: 15px;
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
+    font-size: 0 !important;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2.5px solid currentColor;
+    background: white;
+    grid-column: 2;
+    justify-self: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Destination marker (last stop) — filled */
+.station-list li:last-child i {
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    border-width: 3px;
 }
 
 .station-time {
     font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--primary);
-    margin-right: 15px;
-    width: 50px;
-    flex-shrink: 0;
-    margin-top: 2px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    grid-column: 1;
+    width: auto;
+    margin: 0;
+    text-align: right;
+    padding-right: 2px;
 }
 
 .station-list strong {
     color: var(--secondary);
-    min-width: 140px;
-    display: inline-block;
+    font-size: 0.9rem;
+    grid-column: 3;
+    min-width: auto;
+    display: inline;
 }
 
 .station-list span {
     color: var(--text-light);
-    flex-grow: 1;
+    font-size: 0.8rem;
+    grid-column: 4;
 }
 
 .map-link {
     color: var(--primary);
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-left: 15px;
+    font-size: 0.8rem;
+    grid-column: 5;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .map-link:hover {
@@ -756,52 +827,80 @@ ul {
 }
 
 .row-cta {
-    margin-top: 25px;
+    margin-top: 15px;
     display: flex;
     justify-content: flex-end;
 }
 
 @media (max-width: 768px) {
     .row-main {
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-wrap: nowrap;
+        gap: 8px;
     }
 
     .row-time {
-        width: 60px;
+        width: 55px;
+        font-size: 1.1rem;
     }
 
     .row-path {
-        width: calc(100% - 70px);
-        font-size: 0.95rem;
+        flex: 1;
+        min-width: 0;
+        font-size: 0.9rem;
     }
 
     .row-actions {
-        width: 100%;
-        justify-content: flex-end;
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .row-detail {
+        padding: 10px 12px 15px;
+    }
+
+    .station-list::after {
+        left: 50px;
     }
 
     .station-list li {
-        flex-direction: column;
-    }
-
-    .station-time {
-        margin-bottom: 5px;
-        font-size: 1.05rem;
+        grid-template-columns: 38px 14px auto 1fr auto;
+        gap: 0 6px;
+        padding: 8px 0;
+        font-size: 0.85rem;
     }
 
     .station-list i {
-        display: none;
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+    }
+
+    .station-list li:last-child i {
+        width: 12px;
+        height: 12px;
+    }
+
+    .station-time {
+        font-size: 0.78rem;
     }
 
     .station-list strong {
-        margin-bottom: 5px;
+        grid-column: 3;
+        font-size: 0.85rem;
+    }
+
+    .station-list span {
+        grid-column: 4;
+        font-size: 0.72rem;
     }
 
     .map-link {
-        margin-left: 0;
-        margin-top: 5px;
-        display: inline-block;
+        grid-column: 5;
+        font-size: 0.72rem;
+    }
+
+    .row-cta {
+        margin-top: 10px;
     }
 }
 
@@ -857,6 +956,7 @@ ul {
 .modal-body-layout {
     display: flex;
     gap: 30px;
+    margin-top: 10px;
     margin-bottom: 25px;
 }
 
@@ -869,10 +969,17 @@ ul {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 @media (max-width: 768px) {
+    .booking-modal-content {
+        max-height: 90vh;
+        max-height: 90dvh;
+        overflow-y: auto;
+        padding: 25px 20px;
+    }
+
     .modal-body-layout {
         flex-direction: column;
         gap: 20px;
@@ -907,12 +1014,18 @@ ul {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     color: var(--secondary);
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
 .modal-section {
     margin-bottom: 25px;
+}
+
+
+.modal-section .flatpickr-calendar {
+    box-shadow: none;
+    border: none;
 }
 
 .modal-section label {
@@ -1440,29 +1553,6 @@ ul {
     color: var(--white);
 }
 
-/* Floating Action Button */
-.fab-booking {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    background: var(--accent);
-    color: var(--secondary);
-    text-align: center;
-    padding: 18px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 800;
-    box-shadow: 0 10px 25px rgba(255, 183, 3, 0.5);
-    z-index: 1000;
-    transition: var(--transition);
-}
-
-.fab-booking:hover {
-    background: var(--accent-hover);
-    transform: translateY(-2px);
-}
 
 /* Animations */
 @keyframes fadeIn {
@@ -1515,6 +1605,11 @@ ul {
         display: none;
     }
 
+    .btn-search {
+        width: 100%;
+        justify-content: center;
+    }
+
     .map-container {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1527,7 +1622,7 @@ ul {
 
 @media (max-width: 768px) {
     .header-inner {
-        padding: 5px 0;
+        padding: 5px 20px;
     }
 
     .nav-links,
@@ -1554,17 +1649,14 @@ ul {
 
     .route-tabs {
         flex-wrap: wrap;
+        gap: 8px;
     }
 
-    .fab-booking {
-        display: block;
-        /* Show FAB on mobile */
+    .route-tab {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 
-    .footer {
-        padding-bottom: 100px;
-        /* Space for FAB */
-    }
 }
 
 @media (max-width: 480px) {
@@ -1578,5 +1670,9 @@ ul {
 
     .booking-widget {
         border-radius: var(--radius-md);
+    }
+
+    .route-cards {
+        grid-template-columns: 1fr;
     }
 }
