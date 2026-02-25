@@ -109,6 +109,52 @@ document.addEventListener('DOMContentLoaded', () => {
         // Just ensuring the values are respected by JS if needed
     }
 
+    // Initialize Flatpickr for Date Selection
+    const dateInputs = document.querySelectorAll('.date-select-input');
+    if (dateInputs.length > 0) {
+        flatpickr(dateInputs, {
+            locale: "ko",
+            minDate: "2025-07-11", // Example season start
+            maxDate: "2025-08-17", // Example season end
+            dateFormat: "Y-m-d",
+            disableMobile: true,
+            onReady: function (selectedDates, dateStr, instance) {
+                // Create a custom footer with a "Search Tickets" button
+                const btnContainer = document.createElement("div");
+                btnContainer.className = "flatpickr-footer-cta";
+
+                const searchBtn = document.createElement("button");
+                searchBtn.className = "btn btn-primary btn-search-tickets";
+                searchBtn.innerHTML = '티켓 검색 <i class="fa-solid fa-search"></i>';
+                searchBtn.disabled = true; // Disabled until a date is chosen
+
+                searchBtn.addEventListener("click", function () {
+                    const selected = instance.selectedDates[0];
+                    if (selected) {
+                        // Simulating a search action to anchor
+                        window.location.href = "#booking";
+                        instance.close();
+                    }
+                });
+
+                btnContainer.appendChild(searchBtn);
+                instance.calendarContainer.appendChild(btnContainer);
+
+                // Save reference to button inside instance for easy access
+                instance.searchBtnRef = searchBtn;
+            },
+            onChange: function (selectedDates, dateStr, instance) {
+                if (selectedDates.length > 0) {
+                    instance.searchBtnRef.disabled = false;
+                    instance.searchBtnRef.classList.add("active-pulse");
+                } else {
+                    instance.searchBtnRef.disabled = true;
+                    instance.searchBtnRef.classList.remove("active-pulse");
+                }
+            }
+        });
+    }
+
     // Trigger initial scroll to run animations if already scrolled
     window.dispatchEvent(new Event('scroll'));
 });
