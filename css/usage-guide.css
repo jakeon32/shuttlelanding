@@ -1,0 +1,201 @@
+/* ==========================================
+   Usage Guide — 이용안내 카드, 아코디언, 문의처
+   ========================================== */
+
+.section-light {
+    background: var(--light-bg);
+    padding: 60px 0;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.guide-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.guide-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.guide-card.alert-blue::before { background: var(--primary); }
+.guide-card.alert-orange::before { background: var(--accent); }
+.guide-card.alert-red::before { background: var(--danger); }
+
+.guide-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.guide-icon {
+    font-size: 1.8rem;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #f0f5ff;
+    color: var(--primary);
+}
+
+.guide-card.alert-orange .guide-icon {
+    background: #fff8eb;
+    color: #d97706;
+}
+
+.guide-card.alert-red .guide-icon {
+    background: #fef2f2;
+    color: var(--danger);
+}
+
+.guide-card h4 {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.guide-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* 이용안내 아코디언 */
+.usage-accordion {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.accordion-item {
+    border: 1px solid #eee;
+    margin-bottom: 12px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--white);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 18px 22px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.accordion-header .acc-icon {
+    color: var(--primary);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.accordion-header .fa-chevron-down {
+    margin-left: auto;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #f8fafc;
+}
+
+.accordion-item.active .accordion-header .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: var(--white);
+}
+
+.accordion-item.active .accordion-content {
+    padding: 0 22px 20px 22px;
+}
+
+.accordion-content p {
+    color: var(--text-light);
+}
+
+.usage-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.usage-list li {
+    position: relative;
+    padding: 6px 0 6px 18px;
+    color: var(--text-dark);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.usage-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #cbd5e1;
+}
+
+/* 문의처 */
+.usage-contact {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 800px;
+    margin: 30px auto 0;
+    padding: 16px 22px;
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+}
+
+.usage-contact i {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.usage-contact strong {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--secondary);
+}
+
+.usage-contact span {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}

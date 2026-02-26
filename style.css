@@ -1,5 +1,47 @@
 /* Modern, Vibrant CSS for Ocean World Shuttle */
 
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
 :root {
     --primary: #00B4D8;
     --primary-dark: #0077B6;
@@ -12,8 +54,8 @@
     --text-dark: #1D3557;
     --text-light: #457B9D;
 
-    --font-main: 'Inter', sans-serif;
-    --font-heading: 'Outfit', sans-serif;
+    --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Paperlogy', 'Pretendard', sans-serif;
 
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 10px 20px rgba(0, 119, 182, 0.1);
@@ -288,6 +330,26 @@ ul {
     box-shadow: 0 4px 10px rgba(255, 183, 3, 0.4);
 }
 
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 14px;
+}
+
+.hero-badge i {
+    color: #4ade80;
+    font-size: 0.85rem;
+}
+
 .hero-text h1 {
     font-size: 4.5rem;
     font-weight: 800;
@@ -324,36 +386,28 @@ ul {
 .widget-tabs {
     display: flex;
     padding: 10px 20px;
-    gap: 15px;
+    gap: 6px;
     border-bottom: 1px solid #eee;
 }
 
 .tab-btn {
     background: none;
-    border: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-light);
     cursor: pointer;
-    padding: 10px 10px;
+    padding: 6px 18px;
     position: relative;
     transition: var(--transition);
 }
 
 .tab-btn.active {
-    color: var(--primary-dark);
-}
-
-.tab-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -11px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 3px 3px 0 0;
+    color: var(--white);
+    background: var(--primary);
+    border-color: var(--primary);
 }
 
 .booking-form {
@@ -552,6 +606,11 @@ ul {
 .routes-section {
     padding: 60px 0;
     background: #f6faff;
+}
+
+.return-section {
+    padding: 60px 0;
+    background: var(--white);
 }
 
 .section-header {
@@ -1602,13 +1661,26 @@ ul {
 }
 
 .guide-icon {
-    font-size: 2rem;
+    font-size: 1.4rem;
     width: 48px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
+    border-radius: 50%;
+    background: #f0f5ff;
+    color: var(--primary);
+}
+
+.guide-card.alert-orange .guide-icon {
+    background: #fff8eb;
+    color: #d97706;
+}
+
+.guide-card.alert-red .guide-icon {
+    background: #fef2f2;
+    color: var(--danger);
 }
 
 .guide-card h4 {
@@ -1621,19 +1693,15 @@ ul {
     font-size: 0.95rem;
 }
 
-/* FAQ */
-.faq-section {
-    padding: 60px 0;
-}
-
-.accordion {
+/* 이용안내 아코디언 */
+.usage-accordion {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 40px auto 0;
 }
 
 .accordion-item {
     border: 1px solid #eee;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--white);
@@ -1641,36 +1709,44 @@ ul {
 
 .accordion-header {
     width: 100%;
-    padding: 20px 25px;
+    padding: 18px 22px;
     background: none;
     border: none;
     text-align: left;
     font-family: inherit;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--secondary);
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 10px;
     transition: var(--transition);
 }
 
-.accordion-header:hover {
-    background: #fafafa;
+.accordion-header .acc-icon {
+    color: var(--primary);
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
-.accordion-header i {
-    color: var(--primary);
+.accordion-header .fa-chevron-down {
+    margin-left: auto;
+    color: #94a3b8;
+    font-size: 0.85rem;
     transition: transform 0.3s ease;
 }
 
-.accordion-item.active .accordion-header i {
+.accordion-header:hover {
+    background: #f8fafc;
+}
+
+.accordion-item.active .accordion-header .fa-chevron-down {
     transform: rotate(180deg);
 }
 
 .accordion-content {
-    padding: 0 25px;
+    padding: 0 22px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
@@ -1678,10 +1754,64 @@ ul {
 }
 
 .accordion-item.active .accordion-content {
-    padding: 0 25px 20px 25px;
+    padding: 0 22px 20px 22px;
 }
 
 .accordion-content p {
+    color: var(--text-light);
+}
+
+.usage-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.usage-list li {
+    position: relative;
+    padding: 6px 0 6px 18px;
+    color: var(--text-dark);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.usage-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #cbd5e1;
+}
+
+/* 문의처 */
+.usage-contact {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 800px;
+    margin: 30px auto 0;
+    padding: 16px 22px;
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+}
+
+.usage-contact i {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.usage-contact strong {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--secondary);
+}
+
+.usage-contact span {
+    font-size: 0.85rem;
     color: var(--text-light);
 }
 

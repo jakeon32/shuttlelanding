@@ -1,0 +1,259 @@
+/* ==========================================
+   Responsive — 반응형 미디어 쿼리
+   ========================================== */
+
+/* ── 1024px ── */
+@media (max-width: 1024px) {
+    .hero {
+        padding-top: 120px;
+        min-height: auto;
+    }
+}
+
+/* ── 900px ── */
+@media (max-width: 900px) {
+    .booking-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .icon-swap {
+        display: none;
+    }
+
+    .btn-search {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ── 768px ── */
+@media (max-width: 768px) {
+    /* Header */
+    .header-inner {
+        padding: 5px 20px;
+    }
+
+    .nav-links,
+    .header-actions:not(.mobile-visible) {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hero */
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    /* Section */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Route Rows */
+    .row-main {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .row-time {
+        width: 55px;
+        font-size: 1.1rem;
+    }
+
+    .row-path {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .row-actions {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .row-detail {
+        padding: 10px 12px 15px;
+    }
+
+    /* Station Timeline */
+    .station-list li:not(:last-child)::before {
+        left: 50px;
+        top: 18px;
+        bottom: -18px;
+    }
+
+    .station-list li {
+        grid-template-columns: 38px 14px 1fr auto;
+        gap: 0 6px;
+        padding: 8px 0;
+        font-size: 0.85rem;
+    }
+
+    .station-list i {
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+    }
+
+    .station-list li:last-child i {
+        width: 12px;
+        height: 12px;
+    }
+
+    .station-time {
+        font-size: 0.78rem;
+    }
+
+    .station-list strong {
+        grid-column: 3;
+        font-size: 0.85rem;
+    }
+
+    .station-list span {
+        grid-column: 3 / -1;
+        font-size: 0.72rem;
+    }
+
+    .map-link {
+        grid-column: 5;
+        font-size: 0.72rem;
+    }
+
+    .row-cta {
+        margin-top: 10px;
+    }
+
+    /* Return Schedule */
+    .return-row {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    .return-time {
+        font-size: 1rem;
+        min-width: 48px;
+    }
+
+    .return-destinations {
+        flex-basis: 100%;
+        order: 3;
+        padding-left: 60px;
+    }
+
+    .return-period {
+        margin-left: auto;
+        order: 2;
+    }
+
+    .return-arrow {
+        order: 1;
+    }
+
+    .dest-tag {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+
+    /* Modal */
+    .booking-modal-content {
+        max-height: 90vh;
+        max-height: 90dvh;
+        overflow-y: auto;
+        padding: 25px 20px;
+    }
+
+    .modal-body-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .left-col {
+        min-width: unset;
+    }
+
+    /* Guide — 모바일: 아이콘 좌측 + 내용 우측 */
+    .guide-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .guide-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        text-align: left;
+        padding: 24px 22px;
+    }
+
+    .guide-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.4rem;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .guide-card-body {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .guide-card h4 {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+    }
+
+    .guide-card p {
+        font-size: 0.88rem;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        text-align: left;
+    }
+
+    .footer-bottom .company-info p {
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
+    .legal-links {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* Route Tabs */
+    .route-tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .route-tab {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ── 480px ── */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .booking-widget {
+        border-radius: var(--radius-md);
+    }
+}

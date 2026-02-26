@@ -1,0 +1,366 @@
+/* ==========================================
+   Routes — 노선 섹션, 탭, 그룹, 타임라인, 정류장
+   ========================================== */
+
+.routes-section {
+    padding: 60px 0;
+    background: #f6faff;
+}
+
+.return-section {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.route-subtext {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.direction-divider {
+    margin-bottom: 20px;
+}
+
+.direction-divider h3 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 0;
+}
+
+.badge-sub {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--primary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: var(--font-main);
+}
+
+.route-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.route-tab {
+    padding: 12px 25px;
+    background: var(--light-bg);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.route-tab:hover {
+    background: #edf2f7;
+    color: var(--primary-dark);
+}
+
+.route-tab.active {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+
+.route-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.route-content.active {
+    display: block;
+}
+
+/* Route Group Card */
+.route-group {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: var(--light-bg);
+    border-bottom: 1px solid #eaeaea;
+    border-left: 4px solid transparent;
+}
+
+[data-region="seoul-east-north"] .group-header { border-left-color: #1D6FE8; background: #f0f5ff; }
+[data-region="seoul-south-west"] .group-header { border-left-color: #0EA89A; background: #f0faf8; }
+[data-region="gyeonggi"] .group-header { border-left-color: #2E9E5B; background: #f0f9f4; }
+[data-region="incheon"] .group-header { border-left-color: #7C3AED; background: #f5f0ff; }
+[data-region="resort"] .group-header { border-left-color: #e65100; background: #fff5f0; }
+
+.group-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.bg-blue { background: #1D6FE8; }
+.bg-teal { background: #0EA89A; }
+.bg-green { background: #2E9E5B; }
+.bg-purple { background: #7C3AED; }
+.bg-orange { background: #e65100; }
+
+.color-blue { color: #1D6FE8; }
+.color-teal { color: #0EA89A; }
+.color-green { color: #2E9E5B; }
+.color-purple { color: #7C3AED; }
+
+.group-badge {
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Route Rows */
+.route-rows {
+    display: flex;
+    flex-direction: column;
+}
+
+.route-row + .route-row {
+    border-top: 1px solid #f1f5f9;
+}
+
+.row-main {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.row-main:hover {
+    background: #eef4fb;
+}
+
+.row-time {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.row-path {
+    flex-grow: 1;
+    font-weight: 400;
+    color: var(--text-dark);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.row-path .fa-arrow-right {
+    font-size: 0.6rem;
+    color: #94a3b8;
+}
+
+.row-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.toggle-icon {
+    color: #94a3b8;
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.route-row.open .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.row-detail {
+    display: none;
+    padding: 15px 25px 20px;
+    background: #f8fafc;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.route-row.open .row-detail {
+    display: block;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Timeline Route Map */
+.station-list {
+    margin-top: 0;
+    position: relative;
+    padding-left: 0;
+}
+
+/* 각 li 사이를 연결하는 세로 라인: 마지막 li 제외 */
+.station-list li:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 69px;
+    top: 18px;
+    bottom: -18px;
+    width: 2px;
+    background: #d1dbe6;
+    z-index: 0;
+}
+
+.station-list li {
+    display: grid;
+    grid-template-columns: 50px 20px 1fr auto;
+    gap: 0 10px;
+    align-items: start;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+/* Timeline dot — replaces FA icon glyph */
+.station-list i {
+    font-size: 0 !important;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2.5px solid currentColor;
+    background: white;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Destination marker (last stop) — filled */
+.station-list li:last-child i {
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    border-width: 3px;
+}
+
+.station-time {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    width: auto;
+    margin: 0;
+    text-align: right;
+    padding-right: 2px;
+}
+
+.station-list strong {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    min-width: auto;
+    display: inline;
+}
+
+.station-list span {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    grid-column: 3 / -1;
+    margin-top: 2px;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: #f0f4f8;
+    border: 1px solid #dfe5ec;
+    border-radius: 14px;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.72rem;
+    grid-column: 4;
+    grid-row: 1;
+    align-self: center;
+    margin: 0;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.map-icon {
+    width: 12px;
+    height: 12px;
+    filter: brightness(0) saturate(100%) invert(48%) sepia(8%) saturate(700%) hue-rotate(180deg);
+}
+
+.map-link:hover {
+    background: #e2e8f0;
+    text-decoration: none;
+}
+
+/* Route Row Badges */
+.badge-late {
+    font-size: 0.72rem;
+    background: #fff3e0;
+    color: #e65100;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-afternoon {
+    font-size: 0.72rem;
+    background: #ede9fe;
+    color: #7c3aed;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.row-cta {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}

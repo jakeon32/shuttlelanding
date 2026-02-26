@@ -1,0 +1,63 @@
+/* ==========================================
+   Return Schedule — 리조트 출발 복귀 시간표
+   ========================================== */
+
+.return-schedule {
+    margin-top: 0;
+    background: var(--white);
+}
+
+.return-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+}
+
+.return-row + .return-row {
+    border-top: 1px solid #f1f5f9;
+}
+
+.return-time {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #e65100;
+    min-width: 55px;
+}
+
+.return-arrow {
+    color: #e65100;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.return-destinations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex: 1;
+}
+
+.dest-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #f0f4f8;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.dest-tag.peak {
+    background: #fff3e0;
+    color: #e65100;
+    font-weight: 600;
+}
+
+.return-period {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
