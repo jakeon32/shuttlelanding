@@ -343,7 +343,7 @@
 
 .row-cta {
     margin-top: 15px;
-    display: flex;
+    display: none; /* TODO: 예약 기능 연결 후 flex로 복원 */
     justify-content: flex-end;
 }
 

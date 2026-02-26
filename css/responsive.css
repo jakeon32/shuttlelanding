@@ -93,6 +93,35 @@
         flex-shrink: 0;
     }
 
+    /* 배지 있는 출발 노선 — 모바일 래핑 (리턴 섹션과 동일 패턴) */
+    .row-actions:has(.badge-late) {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    .row-main:has(.badge-late) {
+        flex-wrap: wrap;
+        gap: 4px 8px;
+        position: relative;
+        padding-right: 40px;
+    }
+
+    .row-main:has(.badge-late) .row-path {
+        flex-basis: calc(100% - 65px);
+    }
+
+    .row-main:has(.badge-late) .row-actions {
+        margin-left: auto;
+    }
+
+    .row-main:has(.badge-late) .toggle-icon {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     /* Return section — 모바일 행 래핑 */
     .return-section .row-main {
         flex-wrap: wrap;
