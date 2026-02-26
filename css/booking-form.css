@@ -14,29 +14,30 @@
 
 .widget-tabs {
     display: flex;
-    padding: 10px 20px;
-    gap: 6px;
+    padding: 0 20px;
+    gap: 20px;
     border-bottom: 1px solid #eee;
 }
 
 .tab-btn {
     background: none;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
     font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 500;
     color: var(--text-light);
     cursor: pointer;
-    padding: 6px 18px;
+    padding: 12px 4px;
     position: relative;
-    transition: var(--transition);
+    transition: color 0.2s, border-color 0.2s;
 }
 
 .tab-btn.active {
-    color: var(--white);
-    background: var(--primary);
-    border-color: var(--primary);
+    color: var(--secondary);
+    font-weight: 700;
+    border-bottom-color: var(--secondary);
 }
 
 .booking-form {
@@ -62,8 +63,8 @@
     letter-spacing: 0.8px;
 }
 
-.form-group-to {
-    flex: 0.6;
+.form-group-location {
+    flex: 1;
 }
 
 .form-group select,

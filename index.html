@@ -34,7 +34,7 @@
             <nav class="nav-links">
                 <a href="#routes">노선 & 요금</a>
                 <a href="#boarding">탑승 위치</a>
-                <a href="#booking" class="btn btn-outline">오션월드 바로가기</a>
+                <a href="#" target="_blank" rel="noopener">오션월드 바로가기 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75em;opacity:0.6"></i></a>
             </nav>
             <div class="header-actions">
                 <a href="#" class="btn btn-primary">예약 확인</a>
@@ -59,12 +59,12 @@
 
             <div class="booking-widget animate-up delay-1">
                 <div class="widget-tabs">
-                    <button class="tab-btn active">편도</button>
-                    <button class="tab-btn">왕복</button>
+                    <button class="tab-btn">편도</button>
+                    <button class="tab-btn active">왕복</button>
                 </div>
                 <form class="booking-form">
-                    <div class="form-group">
-                        <label>출발지</label>
+                    <div class="form-group form-group-location">
+                        <label>출발</label>
                         <select required id="from-select">
                             <option value="" disabled selected>출발지 선택</option>
                             <optgroup label="서울 동부/북부">
@@ -94,8 +94,8 @@
                             </optgroup>
                         </select>
                     </div>
-                    <div class="form-group form-group-to">
-                        <label>도착지</label>
+                    <div class="form-group form-group-location">
+                        <label>도착</label>
                         <select required disabled>
                             <option selected>오션월드</option>
                         </select>

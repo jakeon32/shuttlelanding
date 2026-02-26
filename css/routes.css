@@ -69,9 +69,9 @@
 }
 
 .route-tab.active {
-    background: var(--primary);
+    background: var(--secondary);
     color: var(--white);
-    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+    box-shadow: 0 4px 15px rgba(3, 4, 94, 0.2);
 }
 
 .route-content {
@@ -100,14 +100,13 @@
     padding: 14px 20px;
     background: var(--light-bg);
     border-bottom: 1px solid #eaeaea;
-    border-left: 4px solid transparent;
 }
 
-[data-region="seoul-east-north"] .group-header { border-left-color: #1D6FE8; background: #f0f5ff; }
-[data-region="seoul-south-west"] .group-header { border-left-color: #0EA89A; background: #f0faf8; }
-[data-region="gyeonggi"] .group-header { border-left-color: #2E9E5B; background: #f0f9f4; }
-[data-region="incheon"] .group-header { border-left-color: #7C3AED; background: #f5f0ff; }
-[data-region="resort"] .group-header { border-left-color: #e65100; background: #fff5f0; }
+[data-region="seoul-east-north"] .group-header { background: #f0f5ff; }
+[data-region="seoul-south-west"] .group-header { background: #f0faf8; }
+[data-region="gyeonggi"] .group-header { background: #f0f9f4; }
+[data-region="incheon"] .group-header { background: #f5f0ff; }
+[data-region="resort"] .group-header { background: #fff5f0; }
 
 .group-title {
     font-family: var(--font-heading);
@@ -138,12 +137,11 @@
 .color-purple { color: #7C3AED; }
 
 .group-badge {
-    background: #e2e8f0;
-    color: #475569;
+    background: none;
+    color: var(--text-light);
     font-size: 0.85rem;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 20px;
+    font-weight: 500;
+    padding: 0;
 }
 
 /* Route Rows */

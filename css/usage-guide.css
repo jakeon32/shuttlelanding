@@ -27,18 +27,6 @@
     align-items: center;
 }
 
-.guide-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-}
-
-.guide-card.alert-blue::before { background: var(--primary); }
-.guide-card.alert-orange::before { background: var(--accent); }
-.guide-card.alert-red::before { background: var(--danger); }
 
 .guide-card:hover {
     box-shadow: var(--shadow-md);
