@@ -90,7 +90,7 @@
     box-shadow: var(--shadow-sm);
     margin-bottom: 30px;
     overflow: hidden;
-    border: 1px solid #eaeaea;
+    border: none;
 }
 
 .group-header {
@@ -99,7 +99,7 @@
     align-items: center;
     padding: 14px 20px;
     background: var(--light-bg);
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: none;
 }
 
 [data-region="seoul"] .group-header { background: #f0f5ff; }
