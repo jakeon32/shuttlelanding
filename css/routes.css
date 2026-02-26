@@ -12,35 +12,6 @@
     background: var(--white);
 }
 
-.route-subtext {
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-    color: var(--text-light);
-    animation: fadeIn 0.4s ease forwards;
-}
-
-.direction-divider {
-    margin-bottom: 20px;
-}
-
-.direction-divider h3 {
-    font-size: 1.5rem;
-    color: var(--secondary);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 0;
-}
-
-.badge-sub {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--white);
-    background: var(--primary);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-family: var(--font-main);
-}
 
 .route-tabs {
     display: flex;
@@ -124,15 +95,11 @@
 }
 
 .bg-blue { background: #1D6FE8; }
-.bg-teal { background: #0EA89A; }
 .bg-green { background: #2E9E5B; }
-.bg-purple { background: #7C3AED; }
 .bg-orange { background: #e65100; }
 
 .color-blue { color: #1D6FE8; }
-.color-teal { color: #0EA89A; }
 .color-green { color: #2E9E5B; }
-.color-purple { color: #7C3AED; }
 .color-orange { color: #e65100; }
 
 .group-badge {
@@ -335,10 +302,9 @@
 }
 
 /* Route Row Badges */
-.badge-late {
+.badge-late,
+.badge-afternoon {
     font-size: 0.72rem;
-    background: #fff3e0;
-    color: #e65100;
     padding: 3px 10px;
     border-radius: 12px;
     font-family: var(--font-main);
@@ -346,15 +312,25 @@
     white-space: nowrap;
 }
 
+.badge-late {
+    background: #fff3e0;
+    color: #e65100;
+}
+
 .badge-afternoon {
-    font-size: 0.72rem;
     background: #ede9fe;
     color: #7c3aed;
-    padding: 3px 10px;
+}
+
+.return-period {
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 4px 10px;
     border-radius: 12px;
-    font-family: var(--font-main);
-    font-weight: 600;
     white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 500;
 }
 
 .row-cta {
