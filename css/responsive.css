@@ -29,6 +29,20 @@
 
 /* ── 768px ── */
 @media (max-width: 768px) {
+    /* Booking Form */
+    .booking-widget {
+        padding: 0;
+    }
+
+    .booking-form {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .widget-tabs {
+        padding: 0 14px;
+    }
+
     /* Header */
     .header-inner {
         padding: 5px 20px;
@@ -46,6 +60,10 @@
     /* Hero */
     .hero-text h1 {
         font-size: 3rem;
+    }
+
+    .hero-text p.hero-subtitle {
+        font-size: 1.4rem;
     }
 
     /* Section */
@@ -73,6 +91,20 @@
     .row-actions {
         width: auto;
         flex-shrink: 0;
+    }
+
+    /* Return section — 모바일 행 래핑 */
+    .return-section .row-main {
+        flex-wrap: wrap;
+        row-gap: 4px;
+    }
+
+    .return-section .row-path {
+        flex-basis: calc(100% - 65px);
+    }
+
+    .return-section .row-actions {
+        margin-left: auto;
     }
 
     .row-detail {
