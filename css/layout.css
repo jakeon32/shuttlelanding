@@ -80,6 +80,41 @@
     cursor: pointer;
 }
 
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: none;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.mobile-nav.open {
+    max-height: 300px;
+    padding: 12px 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.mobile-nav a {
+    padding: 12px 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    border-bottom: 1px solid #f1f5f9;
+    transition: color 0.2s;
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav a:hover {
+    color: var(--primary);
+}
+
 /* Footer */
 .footer {
     background: var(--secondary);
