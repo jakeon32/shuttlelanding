@@ -4,8 +4,7 @@
 
 .hero {
     position: relative;
-    min-height: 75vh;
-    min-height: 75dvh;
+    min-height: 560px;
     display: flex;
     padding-top: 100px;
     padding-bottom: 40px;
