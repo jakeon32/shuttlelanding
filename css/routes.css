@@ -102,10 +102,8 @@
     border-bottom: 1px solid #eaeaea;
 }
 
-[data-region="seoul-east-north"] .group-header { background: #f0f5ff; }
-[data-region="seoul-south-west"] .group-header { background: #f0faf8; }
-[data-region="gyeonggi"] .group-header { background: #f0f9f4; }
-[data-region="incheon"] .group-header { background: #f5f0ff; }
+[data-region="seoul"] .group-header { background: #f0f5ff; }
+[data-region="gyeonggi-incheon"] .group-header { background: #f0f9f4; }
 [data-region="resort"] .group-header { background: #fff5f0; }
 
 .group-title {

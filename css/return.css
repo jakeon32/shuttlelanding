@@ -40,24 +40,42 @@
 }
 
 .dest-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: #f0f4f8;
-    border-radius: 20px;
-    font-size: 0.85rem;
+    display: inline;
+    padding: 0;
+    background: none;
+    font-size: 0.9rem;
     color: var(--text-dark);
     font-weight: 500;
 }
 
+.dest-tag + .dest-tag:not(.peak)::before {
+    content: '•';
+    margin: 0 6px;
+    color: #94a3b8;
+    font-weight: 400;
+}
+
 .dest-tag.peak {
+    display: inline-block;
     background: #fff3e0;
     color: #e65100;
     font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .return-period {
-    font-size: 0.78rem;
-    color: var(--text-light);
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 12px;
     white-space: nowrap;
     flex-shrink: 0;
+    font-weight: 500;
+    margin-left: auto;
 }

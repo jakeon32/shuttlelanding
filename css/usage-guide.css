@@ -70,14 +70,22 @@
 .usage-accordion {
     max-width: 800px;
     margin: 40px auto 0;
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: var(--radius-md);
+    overflow: hidden;
 }
 
 .accordion-item {
-    border: 1px solid #eee;
-    margin-bottom: 12px;
-    border-radius: var(--radius-md);
+    border: none;
+    margin-bottom: 0;
+    border-radius: 0;
     overflow: hidden;
     background: var(--white);
+}
+
+.accordion-item + .accordion-item {
+    border-top: 1px solid #eee;
 }
 
 .accordion-header {
@@ -123,11 +131,11 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
-    background: var(--white);
+    background: #f8fafc;
 }
 
 .accordion-item.active .accordion-content {
-    padding: 0 22px 20px 22px;
+    padding: 0 22px 20px 48px;
 }
 
 .accordion-content p {
