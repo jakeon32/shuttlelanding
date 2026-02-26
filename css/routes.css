@@ -157,6 +157,14 @@
     color: #94a3b8;
 }
 
+.row-sub-info {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+}
+
 .row-actions {
     display: flex;
     align-items: center;
