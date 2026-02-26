@@ -346,3 +346,78 @@
     display: flex;
     justify-content: flex-end;
 }
+
+/* Fare Summary — 요금 테이블 + 정책 링크 */
+.fare-summary {
+    margin: 36px 0 0;
+    text-align: center;
+}
+
+.fare-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 14px;
+    text-align: left;
+    scroll-margin-top: 80px;
+}
+
+.fare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+}
+
+.fare-table th,
+.fare-table td {
+    padding: 12px 18px;
+    text-align: center;
+}
+
+.fare-table th:first-child,
+.fare-table td:first-child {
+    text-align: left;
+}
+
+.fare-table thead th {
+    background: #f1f5f9;
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: 0.88rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.fare-table tbody td {
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.fare-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.fare-policy-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.fare-policy-link:hover {
+    color: var(--primary);
+}
+
+.fare-policy-link i {
+    font-size: 0.7rem;
+}

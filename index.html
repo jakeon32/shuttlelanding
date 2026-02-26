@@ -31,8 +31,8 @@
                 <img src="images/vivaldipark-logo.png" alt="Vivaldi Park Logo">
             </a>
             <nav class="nav-links">
-                <a href="#routes">노선 & 요금</a>
-                <a href="#boarding">탑승 위치</a>
+                <a href="#routes">노선 정보</a>
+                <a href="#fare-info">요금 안내</a>
                 <a href="#" target="_blank" rel="noopener">오션월드 바로가기 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75em;opacity:0.6"></i></a>
             </nav>
             <div class="header-actions">
@@ -630,8 +630,18 @@
                         </div>
                     </div>
 
-                <div class="text-center mt-4 mb-4">
-                    <a href="#booking" class="btn btn-primary">요금 상세보기 &rarr;</a>
+                <div class="fare-summary">
+                    <h3 class="fare-title" id="fare-info">요금안내</h3>
+                    <table class="fare-table">
+                        <thead>
+                            <tr><th>구분</th><th>편도</th><th>왕복</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>성인</td><td>10,000원</td><td>20,000원</td></tr>
+                            <tr><td>소인</td><td>8,000원</td><td>16,000원</td></tr>
+                        </tbody>
+                    </table>
+                    <a href="#cancel-refund" class="fare-policy-link" onclick="openAccordionAndScroll(event)">취소·환불 규정 보기 <i class="fa-solid fa-arrow-down"></i></a>
                 </div>
 
             </div> <!-- .route-content -->
@@ -761,7 +771,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <div class="accordion-item" id="cancel-refund">
                     <button class="accordion-header"><i class="fa-solid fa-credit-card acc-icon"></i> 취소·환불 규정 <i class="fa-solid fa-chevron-down"></i></button>
                     <div class="accordion-content">
                         <ul class="usage-list">
@@ -846,8 +856,8 @@
                 <div class="footer-links">
                     <h4>퀵링크</h4>
                     <ul>
-                        <li><a href="#routes">노선 & 요금</a></li>
-                        <li><a href="#boarding">탑승 위치</a></li>
+                        <li><a href="#routes">노선 정보</a></li>
+                        <li><a href="#fare-info">요금 안내</a></li>
                         <li><a href="#faq">이용안내</a></li>
                         <li><a href="#">오션월드 바로가기</a></li>
                     </ul>

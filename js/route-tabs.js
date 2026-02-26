@@ -56,6 +56,28 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Scroll to cancel-refund accordion and open it
+window.openAccordionAndScroll = function (e) {
+    e.preventDefault();
+    const target = document.getElementById('cancel-refund');
+    if (!target) return;
+
+    const header = target.querySelector('.accordion-header');
+    const content = target.querySelector('.accordion-content');
+
+    // Close all, then open target
+    document.querySelectorAll('.accordion-item').forEach(acc => {
+        acc.classList.remove('active');
+        acc.querySelector('.accordion-content').style.maxHeight = null;
+    });
+    target.classList.add('active');
+    content.style.maxHeight = content.scrollHeight + 40 + 'px';
+
+    // Scroll with offset for fixed header
+    const y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+};
+
 // Global Function to toggle route details accordion
 window.toggleRouteDetail = function (element) {
     const row = element.closest('.route-row');
