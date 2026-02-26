@@ -4,7 +4,7 @@
     --primary: #00B4D8;
     --primary-dark: #0077B6;
     --secondary: #03045E;
-    --accent: #FFB703;
+    --accent: #ffc303;
     --accent-hover: #FB8500;
     --danger: #E63946;
     --light-bg: #F8F9FA;
@@ -299,7 +299,7 @@ ul {
 .hero-text p.hero-subtitle {
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--accent);
+    color: #ffc303;
     margin-bottom: 20px;
     letter-spacing: 0.3px;
 }
@@ -817,26 +817,26 @@ ul {
     padding-left: 0;
 }
 
-/* Vertical connecting line */
-.station-list::after {
+/* 각 li 사이를 연결하는 세로 라인: 마지막 li 제외 */
+.station-list li:not(:last-child)::before {
     content: '';
     position: absolute;
     left: 69px;
     top: 18px;
-    bottom: 18px;
+    bottom: -18px;
     width: 2px;
     background: #d1dbe6;
-    border-radius: 1px;
     z-index: 0;
 }
 
 .station-list li {
     display: grid;
-    grid-template-columns: 50px 20px auto 1fr auto;
+    grid-template-columns: 50px 20px 1fr auto;
     gap: 0 10px;
-    align-items: center;
+    align-items: start;
     padding: 10px 0;
     font-size: 0.9rem;
+    position: relative;
 }
 
 .station-list li:last-child {
@@ -852,7 +852,9 @@ ul {
     border: 2.5px solid currentColor;
     background: white;
     grid-column: 2;
+    grid-row: 1;
     justify-self: center;
+    align-self: center;
     position: relative;
     z-index: 1;
 }
@@ -871,6 +873,8 @@ ul {
     font-size: 0.85rem;
     color: var(--text-light);
     grid-column: 1;
+    grid-row: 1;
+    align-self: center;
     width: auto;
     margin: 0;
     text-align: right;
@@ -881,6 +885,8 @@ ul {
     color: var(--secondary);
     font-size: 0.9rem;
     grid-column: 3;
+    grid-row: 1;
+    align-self: center;
     min-width: auto;
     display: inline;
 }
@@ -888,20 +894,39 @@ ul {
 .station-list span {
     color: var(--text-light);
     font-size: 0.8rem;
-    grid-column: 4;
+    grid-column: 3 / -1;
+    margin-top: 2px;
 }
 
 .map-link {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.8rem;
-    grid-column: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: #f0f4f8;
+    border: 1px solid #dfe5ec;
+    border-radius: 14px;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.72rem;
+    grid-column: 4;
+    grid-row: 1;
+    align-self: center;
     margin: 0;
     white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.map-icon {
+    width: 12px;
+    height: 12px;
+    filter: brightness(0) saturate(100%) invert(48%) sepia(8%) saturate(700%) hue-rotate(180deg);
 }
 
 .map-link:hover {
-    text-decoration: underline;
+    background: #e2e8f0;
+    text-decoration: none;
 }
 
 .row-cta {
@@ -1030,12 +1055,14 @@ ul {
         padding: 10px 12px 15px;
     }
 
-    .station-list::after {
+    .station-list li:not(:last-child)::before {
         left: 50px;
+        top: 18px;
+        bottom: -18px;
     }
 
     .station-list li {
-        grid-template-columns: 38px 14px auto 1fr auto;
+        grid-template-columns: 38px 14px 1fr auto;
         gap: 0 6px;
         padding: 8px 0;
         font-size: 0.85rem;
@@ -1062,7 +1089,7 @@ ul {
     }
 
     .station-list span {
-        grid-column: 4;
+        grid-column: 3 / -1;
         font-size: 0.72rem;
     }
 
