@@ -127,32 +127,6 @@
         margin-top: 10px;
     }
 
-    /* Return Schedule */
-    .return-row {
-        flex-wrap: wrap;
-        gap: 6px 8px;
-        padding: 12px 16px;
-    }
-
-    .return-time {
-        font-size: 1rem;
-        min-width: 48px;
-    }
-
-    .return-destinations {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .dest-tag {
-        font-size: 0.82rem;
-    }
-
-    .return-period,
-    .dest-tag.peak {
-        margin-left: 0;
-    }
-
     /* Modal */
     .booking-modal-content {
         max-height: 90vh;

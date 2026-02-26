@@ -2,72 +2,6 @@
    Return Schedule — 리조트 출발 복귀 시간표
    ========================================== */
 
-.return-schedule {
-    margin-top: 0;
-    background: var(--white);
-}
-
-.return-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 20px;
-}
-
-.return-row + .return-row {
-    border-top: 1px solid #f1f5f9;
-}
-
-.return-time {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #e65100;
-    min-width: 55px;
-}
-
-.return-arrow {
-    color: #e65100;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-}
-
-.return-destinations {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    flex: 1;
-}
-
-.dest-tag {
-    display: inline;
-    padding: 0;
-    background: none;
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    font-weight: 500;
-}
-
-.dest-tag + .dest-tag:not(.peak)::before {
-    content: '•';
-    margin: 0 6px;
-    color: #94a3b8;
-    font-weight: 400;
-}
-
-.dest-tag.peak {
-    display: inline-block;
-    background: #fff3e0;
-    color: #e65100;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-left: auto;
-}
-
 .return-period {
     font-size: 0.75rem;
     color: #64748b;
@@ -77,5 +11,4 @@
     white-space: nowrap;
     flex-shrink: 0;
     font-weight: 500;
-    margin-left: auto;
 }
